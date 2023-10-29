@@ -78,7 +78,7 @@ const config: DocsThemeConfig = {
     );
   },
   project: {
-    link: "https://www.linkedin.com/company/screenwriter-dev",
+    link: "https://www.linkedin.com/company/momentic-ai",
     icon: <LinkedInIcon />,
   },
   chat: {
