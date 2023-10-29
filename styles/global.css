@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
+html,
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  color: #111;
+  background: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+#hero {
+  background: linear-gradient(to bottom, #fff 50%, #9e88d648 100%),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+html[class~="dark"] #hero {
+  background: linear-gradient(to bottom, #111 50%, #2a2044af 100%),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+.gradient-bg {
+  background: linear-gradient(#a788ec, #8066b7);
+}
+
+.gradient-text {
+  --bg-size: 400%;
+  background: linear-gradient(90deg, #efa0a5, #a788ec, #efa0a5) 0 0 /
+    var(--bg-size) 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 3.5px #c0beea8f);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gradient-text {
+    animation: move-bg 16s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+html[class~="dark"] .gradient-text {
+  filter: drop-shadow(0px 3.5px #54527b9f);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.animate-once {
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+.animate-ping {
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+}
+
+.fix-safari-tilt {
+  -webkit-transform: translateZ(0);
+}
+
+.fix-safari-blur {
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes scroll-5 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-12rem * 5));
+  }
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, #fff 0%, #ffffff00 100%);
+  content: "";
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 10rem;
+  pointer-events: none;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider .slide-track-5 {
+  animation: scroll-5 30s linear infinite;
+  display: flex;
+  width: calc(12rem * 5 * 2);
+}
+.slider .slide-track-10 {
+  animation: scroll-5 30s linear infinite;
+  display: flex;
+  width: calc(12rem * 10 * 2);
+}

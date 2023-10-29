@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    {
+      "source": "/chat",
+      "destination": "https://discord.gg/PhgrpJfmFK"
+    },
+    {
+      "source": "/waitlist",
+      "destination": "https://tally.so/r/nraKxo"
+    }
+  ]
+}
