@@ -85,7 +85,7 @@ const config: DocsThemeConfig = {
     link: "https://discord.gg/PhgrpJfmFK",
     icon: <DiscordIcon />,
   },
-  docsRepositoryBase: "https://github.com/screenwriter-dev/website",
+  docsRepositoryBase: "https://github.com/screenwriter-dev/website/blob/main",
   footer: {
     text: (
       <div className="flex w-full items-center justify-between">
