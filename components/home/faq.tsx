@@ -30,8 +30,8 @@ const faq = [
     answer: (
       <>
         Test scripts (Cypress, Playwright, Puppeteer) are flakey and are a
-        burden to maintain as your application grows. Momentic's AI is able to
-        adapt to your application and only surface real issues.
+        burden to maintain as your application grows. Our AI is able to adapt to
+        your application and only surface real issues.
       </>
     ),
   },
