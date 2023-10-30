@@ -29,9 +29,9 @@ const faq = [
     ),
     answer: (
       <>
-        Test scripts (Cypress, Playwright, Puppeteer) are flakey and are a
-        burden to maintain as your application grows. Our AI is able to adapt to
-        your application and only surface real issues.
+        Test scripts (Cypress, Playwright, Puppeteer, Selenium) are flakey and
+        are a burden to maintain as your application grows. Our AI is able to
+        adapt to your application and only surface real issues.
       </>
     ),
   },
@@ -48,9 +48,9 @@ const faq = [
     question: <>How do I debug tests?</>,
     answer: (
       <>
-        Review every execution playback directly in the Momentic app. When a
-        test fails, we show you exactly what happened in the browser so you can
-        immediately identify what needs to be fixed.
+        Review every test run directly in the Momentic app. When a test fails,
+        we show you exactly what happened in the browser so you can immediately
+        identify what needs to be fixed.
       </>
     ),
   },
@@ -58,8 +58,8 @@ const faq = [
     question: <>Do you need access to my codebase?</>,
     answer: (
       <>
-        Momentic takes care of everything! We store and run all tests on our
-        infrastructure. No access to your codebase is required.
+        We store and run all tests on our infrastructure. No access to your
+        codebase is required.
       </>
     ),
   },

@@ -20,8 +20,8 @@ export function Hero() {
               Fast track your web test automation
             </h1>
             <p className="mt-8 text-xl text-zinc-600 dark:text-zinc-300 leading-8">
-              Create, run, and maintain fully functional E2E webs tests directly
-              from your browser.
+              Create and run intelligent E2E tests with natural language. No
+              code required.
             </p>
             <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
               <Link
