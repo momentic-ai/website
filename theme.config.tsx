@@ -106,7 +106,7 @@ const config: DocsThemeConfig = {
       title: "Momentic",
       description: "Fast track your web test automation",
       author: {
-        twitter: "ScreenwriterDev",
+        twitter: "MomenticAI",
       },
       favicon: "/favicon.svg",
     };

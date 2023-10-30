@@ -3,7 +3,7 @@ export function TwitterXIcon() {
     <a
       style={{ padding: "0.5rem" }}
       target="_blank"
-      href="https://twitter.com/ScreenwriterDev"
+      href="https://twitter.com/MomenticAI"
       aria-label="Momentic twitter"
       rel="nofollow noreferrer"
     >
