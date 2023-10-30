@@ -85,6 +85,10 @@ const config: DocsThemeConfig = {
     link: "https://discord.gg/PhgrpJfmFK",
     icon: <DiscordIcon />,
   },
+  nextThemes: {
+    defaultTheme: "light",
+    forcedTheme: "light",
+  },
   docsRepositoryBase: "https://github.com/screenwriter-dev/website/blob/main",
   footer: {
     text: (
