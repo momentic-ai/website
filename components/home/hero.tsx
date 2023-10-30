@@ -8,6 +8,7 @@ import BKOLogo from "../../public/bko.svg";
 import { Container } from "./container";
 import { ShimmerButton } from "./shimmer-button";
 import FigLogo from "../../public/fig.webp";
+import YCLogo from "../../public/yc.png";
 
 export function Hero() {
   return (
