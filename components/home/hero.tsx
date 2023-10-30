@@ -18,11 +18,16 @@ export function Hero() {
         <div className="relative pt-20 md:pt-36 ml-auto">
           <div className="lg:w-[70%] text-center mx-auto">
             <h1 className="text-zinc-900 dark:text-white font-extrabold text-5xl md:text-6xl xl:text-7xl">
-              Fast track your web test automation
+              Fast track your test automation{" "}
+              <span className="gradient-text inline-block">with AI</span>
             </h1>
             <p className="mt-8 text-xl text-zinc-600 dark:text-zinc-300 leading-8">
-              Create and run intelligent E2E tests with natural language. No
-              code required.
+              Momentic enables developers to deploy AI agents to test web apps
+              end-to-end.{" "}
+              <span className="font-medium dark:text-zinc-100 whitespace-nowrap">
+                No code required
+              </span>{" "}
+              - just describe user flows using natural language.
             </p>
             <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
               <Link

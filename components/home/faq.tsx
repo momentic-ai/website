@@ -40,7 +40,7 @@ const faq = [
     answer: (
       <>
         Describe a user flow using natural language and our AI will do the rest.
-        Zero code required and no engineers needed.
+        Zero code required.
       </>
     ),
   },

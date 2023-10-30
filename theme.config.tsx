@@ -108,7 +108,7 @@ const config: DocsThemeConfig = {
 
     const ogConfig = {
       title: "Momentic",
-      description: "Fast track your web test automation",
+      description: "Fast track your web test automation with AI",
       author: {
         twitter: "MomenticAI",
       },
