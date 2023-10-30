@@ -20,6 +20,7 @@ export function CTA() {
               <Link
                 href="https://tally.so/r/nraKxo"
                 className="h-12 w-fullsm:w-max"
+                target="_blank"
               >
                 <ShimmerButton
                   className="relative w-full sm:w-max flex items-center justify-center transition-all hover:shadow-[0_0_0_3px_rgba(255,255,255,0.3)_inset]"
