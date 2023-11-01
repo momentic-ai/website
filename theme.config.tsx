@@ -5,6 +5,15 @@ import { DiscordIcon } from "@components/icons/discord-icon";
 import { TwitterXIcon } from "@components/icons/twitter-x-icon";
 import { LinkedInIcon } from "@components/icons/linkedin-icon";
 
+const ogConfig = {
+  title: "Momentic",
+  description: "Fast track your web test automation with AI",
+  author: {
+    twitter: "MomenticAI",
+  },
+  favicon: "/favicon.svg",
+};
+
 const config: DocsThemeConfig = {
   logo: () => {
     return (
@@ -106,14 +115,6 @@ const config: DocsThemeConfig = {
     const { asPath, pathname } = useRouter();
     const { frontMatter } = useConfig();
 
-    const ogConfig = {
-      title: "Momentic",
-      description: "Fast track your web test automation with AI",
-      author: {
-        twitter: "MomenticAI",
-      },
-      favicon: "/favicon.svg",
-    };
     const favicon = String(ogConfig.favicon);
     const title = String(frontMatter.title || ogConfig.title);
     const description = String(frontMatter.description || ogConfig.description);
@@ -130,11 +131,12 @@ const config: DocsThemeConfig = {
 
     return (
       <>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Language" content="en" />
+
         <meta property="og:url" content={canonical} />
         <link rel="canonical" href={canonical} />
 
-        <meta name="description" content={description} />
-        <meta property="og:description" content={description} />
         <meta name="twitter:site" content={`@${ogConfig.author.twitter}`} />
         <meta name="twitter:creator" content={`@${ogConfig.author.twitter}`} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -168,14 +170,19 @@ const config: DocsThemeConfig = {
     backToTop: true,
   },
   darkMode: false,
+
+  // title and descriptions are set here instead of head
   useNextSeoProps() {
+    const { frontMatter } = useConfig();
     const { asPath } = useRouter();
 
+    const description = frontMatter.description || ogConfig.description;
+
     if (["/", "/docs"].includes(asPath)) {
-      return { titleTemplate: "Momentic" };
+      return { titleTemplate: "Momentic", description };
     }
 
-    return { titleTemplate: `%s | Momentic` };
+    return { titleTemplate: `%s | Momentic`, description };
   },
   primaryHue: 216,
   primarySaturation: 66,
