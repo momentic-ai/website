@@ -132,7 +132,6 @@ const config: DocsThemeConfig = {
     return (
       <>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Language" content="en" />
 
         <meta property="og:url" content={canonical} />
         <link rel="canonical" href={canonical} />
