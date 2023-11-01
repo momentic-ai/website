@@ -6,8 +6,9 @@ import { TwitterXIcon } from "@components/icons/twitter-x-icon";
 import { LinkedInIcon } from "@components/icons/linkedin-icon";
 
 const ogConfig = {
-  title: "Momentic",
-  description: "Fast track your web test automation with AI",
+  title: "Momentic - Fast track your web test automation with AI",
+  description:
+    "Momentic enables developers to deploy AI agents to test web apps end-to-end. No code required - just describe user flows using natural language.",
   author: {
     twitter: "MomenticAI",
   },
@@ -175,10 +176,11 @@ const config: DocsThemeConfig = {
     const { frontMatter } = useConfig();
     const { asPath } = useRouter();
 
+    const title = frontMatter.title || ogConfig.title;
     const description = frontMatter.description || ogConfig.description;
 
-    if (["/", "/docs"].includes(asPath)) {
-      return { titleTemplate: "Momentic", description };
+    if (["/"].includes(asPath)) {
+      return { title, description };
     }
 
     return { titleTemplate: `%s | Momentic`, description };
