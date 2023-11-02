@@ -12,7 +12,6 @@ const ogConfig = {
   author: {
     twitter: "MomenticAI",
   },
-  favicon: "/favicon.svg",
 };
 
 const config: DocsThemeConfig = {
@@ -116,7 +115,6 @@ const config: DocsThemeConfig = {
     const { asPath, pathname } = useRouter();
     const { frontMatter } = useConfig();
 
-    const favicon = String(ogConfig.favicon);
     const title = String(frontMatter.title || ogConfig.title);
     const description = String(frontMatter.description || ogConfig.description);
     const note =
@@ -145,8 +143,9 @@ const config: DocsThemeConfig = {
         <meta property="twitter:description" content={description} />
         <meta property="og:image" content={ogUrl} />
 
-        <link rel="shortcut icon" href={favicon} type="image/svg+xml" />
-        <link rel="apple-touch-icon" href={favicon} type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+
         <meta name="apple-mobile-web-app-title" content={title} />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
