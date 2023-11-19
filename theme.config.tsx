@@ -98,7 +98,7 @@ const config: DocsThemeConfig = {
     defaultTheme: "light",
     forcedTheme: "light",
   },
-  docsRepositoryBase: "https://github.com/screenwriter-dev/website/blob/main",
+  docsRepositoryBase: "https://github.com/momentic-ai/website/blob/main",
   footer: {
     text: (
       <div className="flex w-full items-center justify-between">
