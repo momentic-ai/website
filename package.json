@@ -16,6 +16,7 @@
     "dedent": "^0.7.0",
     "framer-motion": "^10.12.4",
     "geist": "^1.0.0",
+    "lucide-react": "^0.294.0",
     "next": "^14.0.0",
     "nextra": "^2.13.2",
     "nextra-theme-docs": "^2.13.2",

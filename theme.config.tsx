@@ -162,7 +162,7 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 1,
   },
   search: {
-    placeholder: "Search documentation...",
+    placeholder: "Search...",
   },
   toc: {
     float: true,
