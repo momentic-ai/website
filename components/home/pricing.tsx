@@ -11,7 +11,7 @@ const tiers = [
     description:
       "Get started, no credit card required. Great for hobby projects and POCs.",
     features: [
-      "Unlimited test creation",
+      "10 tests",
       "100 runs / month",
       "1 seat",
       "Basic support",
@@ -28,9 +28,11 @@ const tiers = [
     description:
       "For serious teams and projects. Includes access to support and onboarding.",
     features: [
-      "Unlimited test creation",
+      "Unlimited tests",
       "1000 runs / month",
       "10 seats",
+      "Scheduled runs",
+      "CI/CD integrations",
       "Dedicated support channel",
       "White-glove onboarding support",
     ],
