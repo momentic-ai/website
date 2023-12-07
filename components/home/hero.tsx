@@ -8,6 +8,7 @@ import BKOLogo from "../../public/bko.svg";
 import { Container } from "./container";
 import { ShimmerButton } from "./shimmer-button";
 import FigLogo from "../../public/fig.webp";
+import YCLogo from "../../public/yc.svg";
 
 export function Hero() {
   return (
@@ -28,6 +29,12 @@ export function Hero() {
               </span>{" "}
               - just describe user flows using natural language.
             </p>
+
+            <div className="flex gap-2 items-center justify-center mt-8">
+              <span>Backed by</span>
+              <Image src={YCLogo} height={30} alt="YC" />
+            </div>
+
             <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
               <Link
                 href="https://momentic.ai/waitlist"
@@ -87,7 +94,7 @@ export function Companies() {
     },
     {
       url: "https://www.nero.com/ena/?vlang=us",
-      component: <Image src={NeroLogo as string} height={30} alt="Nero" />,
+      component: <Image src={NeroLogo} height={30} alt="Nero" />,
     },
     {
       url: "https://www.cognitivetalentsolutions.com/",
