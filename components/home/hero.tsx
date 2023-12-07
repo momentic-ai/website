@@ -30,10 +30,13 @@ export function Hero() {
               - just describe user flows using natural language.
             </p>
 
-            <div className="flex gap-2 items-center justify-center mt-8">
+            <Link
+              href="https://www.ycombinator.com/companies/momentic"
+              className="flex gap-2 items-center justify-center mt-8"
+            >
               <span>Backed by</span>
               <Image src={YCLogo} height={30} alt="YC" />
-            </div>
+            </Link>
 
             <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
               <Link
