@@ -1,25 +1,25 @@
 ---
-title: Blog
-description: The latest news from the Momentic team.
+title: Changelog
+description: The latest releases from the Momentic team.
 ---
 
 import { getPagesUnderRoute } from "nextra/context";
 import Link from "next/link";
 
-export function BlogHeader() {
+export function ChangelogHeader() {
   return (
     <div className="max-w-screen-lg mx-auto pt-4 pb-8 mb-16 border-b border-gray-400 border-opacity-20 text-center">
       <h1>
-        <span className="font-bold leading-tight lg:text-5xl">Blog</span>
+        <span className="font-bold leading-tight lg:text-5xl">Changelog</span>
       </h1>
       <p className="text-center text-gray-500 dark:text-gray-400 font-space-grotesk">
-        The latest news from the Momentic team.
+        The latest releases from the Momentic team.
       </p>
     </div>
   );
 }
 
-export function BlogIndex() {
+export function ChanglogIndex() {
   return getPagesUnderRoute("/blog").map((page) => {
     return (
       <div key={page.route} className="mb-10">
@@ -47,5 +47,5 @@ export function BlogIndex() {
   });
 }
 
-<BlogHeader />
-<BlogIndex />
+<ChangelogHeader />
+<ChanglogIndex />
