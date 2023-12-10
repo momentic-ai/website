@@ -6,17 +6,5 @@
     "theme": {
       "layout": "raw"
     }
-  },
-  "docs": {
-    "type": "page",
-    "title": "Docs"
-  },
-  "changelog": {
-    "type": "page",
-    "title": "Changelog"
-  },
-  "blog": {
-    "type": "page",
-    "title": "Blog"
   }
 }
