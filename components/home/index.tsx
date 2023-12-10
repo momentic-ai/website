@@ -11,7 +11,7 @@ export function Home() {
       <Demo />
       {/* <Pricing /> */}
       <FAQ />
-      <CTA />
+      {/* <CTA /> */}
     </main>
   );
 }
