@@ -4,3 +4,5 @@ node_modules
 tsconfig.tsbuildinfo
 **/public/*.xml
 **/public/*.txt
+.vercel
+.env*.local
