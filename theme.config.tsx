@@ -143,7 +143,7 @@ const config: DocsThemeConfig = {
         <meta property="twitter:description" content={description} />
         <meta property="og:image" content={ogUrl} />
 
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
         <link rel="icon" href="/favicon.png" type="image/png" />
 
         <meta name="apple-mobile-web-app-title" content={title} />
