@@ -3,5 +3,8 @@
     "type": "separator",
     "title": "Getting Started"
   },
-  "index": "Introduction"
+  "index": "Introduction",
+  "Running test": "Running a test",
+  "Creating test": "Creating a test",
+  "Viewing Results": "Viewing Results"
 }
