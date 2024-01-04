@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
     // Initialize PostHog
     if (typeof window !== 'undefined') {
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.posthog.com',
+        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
         // Enable debug mode in development
         loaded: (posthog) => {
           if (process.env.NODE_ENV === 'development') posthog.debug()
@@ -24,7 +24,6 @@ export default function App({ Component, pageProps }) {
     // Track page views
     const handleRouteChange = (path) => {
       posthog.capture('$pageview')
-      hsPageView(path)
     }
 
     router.events.on('routeChangeComplete', handleRouteChange)

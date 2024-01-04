@@ -6,5 +6,15 @@
     "theme": {
       "layout": "raw"
     }
+  },
+  "tos": {
+    "title": "Terms of Service",
+    "type": "page",
+    "display": "hidden"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "type": "page",
+    "display": "hidden"
   }
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { type DocsThemeConfig, useConfig } from "nextra-theme-docs";
-import { DiscordIcon } from "@components/icons/discord-icon";
-import { TwitterXIcon } from "@components/icons/twitter-x-icon";
-import { LinkedInIcon } from "@components/icons/linkedin-icon";
+import { DiscordIcon } from "@/components/icons/discord-icon";
+import { TwitterXIcon } from "@/components/icons/twitter-x-icon";
+import { LinkedInIcon } from "@/components/icons/linkedin-icon";
+import Link from "next/link";
 
 const ogConfig = {
   title: "Momentic - Fast track your web test automation with AI",
@@ -13,6 +14,17 @@ const ogConfig = {
     twitter: "MomenticAI",
   },
 };
+
+const footerLegalNav = [
+  {
+    name: "Terms of Service",
+    href: "/tos",
+  },
+  {
+    name: "Privacy Policy",
+    href: "/privacy",
+  },
+];
 
 const config: DocsThemeConfig = {
   logo: () => {
@@ -101,9 +113,24 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: "https://github.com/momentic-ai/website/blob/main",
   footer: {
     text: (
-      <div className="flex w-full items-center justify-between">
-        <div>
-          Copyright © {new Date().getFullYear()} Momentic. All rights reserved.
+      <div className="flex md:justify-between md:flex-row flex-col items-center flex-1 flex-wrap gap-2 text-sm">
+        <div className="text-primary/80">
+          Copyright © {new Date().getFullYear()} Momentic, Inc. All rights
+          reserved.
+        </div>
+ 
+        <div className="md:order-last flex flex-col lg:flex-row gap-y-1 gap-x-4">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-end">
+            {footerLegalNav.map((nav) => (
+              <Link
+                key={nav.name}
+                href={nav.href}
+                className="inline rounded-none leading-6 text-primary/80 hover:text-primary whitespace-nowrap"
+              >
+                {nav.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     ),
