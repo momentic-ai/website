@@ -8,7 +8,7 @@ import { Frame } from "@/components/frame";
 import Link from "next/link";
 
 const ogConfig = {
-  title: "Momentic - Fast track your web test automation with AI",
+  title: "Momentic | Fast track your web test automation with AI",
   description:
     "Momentic enables developers to deploy AI agents to test web apps end-to-end. No code required - just describe user flows using natural language.",
   author: {
@@ -200,19 +200,21 @@ const config: DocsThemeConfig = {
   components: {
     Frame,
   },
-  // title and descriptions are set here instead of head
   useNextSeoProps() {
-    const { frontMatter } = useConfig();
     const { asPath } = useRouter();
 
-    const title = frontMatter.title || ogConfig.title;
-    const description = frontMatter.description || ogConfig.description;
-
-    if (["/"].includes(asPath)) {
-      return { title, description };
-    }
-
-    return { titleTemplate: `%s | Momentic`, description };
+    return {
+      titleTemplate:
+        asPath === "/"
+          ? ogConfig.title
+          : asPath.startsWith("/blog/")
+          ? "%s | Momentic Blog"
+          : asPath.startsWith("/docs/")
+          ? "%s | Momentic Docs"
+          : asPath.startsWith("/changelog/")
+          ? "%s | Momentic Changelog"
+          : "%s | Momentic",
+    };
   },
   primaryHue: 216,
   primarySaturation: 66,
