@@ -1,3 +1,40 @@
 {
-  "index": "Introduction"
+  "index": "Introduction",
+  "-- Getting started": {
+    "type": "separator",
+    "title": "Getting Started"
+  },
+  "quickstart": "Quickstart",
+  "-- Creating a test": {
+    "type": "separator",
+    "title": "Creating a test"
+  },
+  "step-types": "Step types",
+  "test-options": "Test options",
+  "-- Running a test": {
+    "type": "separator",
+    "title": "Running a test"
+  },
+  "manually": "Manually",
+  "cron": "Cron",
+  "webhook": "Webhook",
+  "github-actions": "GitHub Actions",
+  "circleci": "CircleCI",
+  "-- Viewing results": {
+    "type": "separator",
+    "title": "Viewing results"
+  },
+  "run-viewer": "Run viewer",
+  "-- Notifications": {
+    "type": "separator",
+    "title": "Notifications"
+  },
+  "slack": "Slack",
+  "discord": "Discord",
+  "-- Integrations": {
+    "type": "separator",
+    "title": "Integrations"
+  },
+  "api": "API",
+  "github": "GitHub"
 }
