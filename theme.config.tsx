@@ -5,6 +5,7 @@ import { DiscordIcon } from "@/components/icons/discord-icon";
 import { TwitterXIcon } from "@/components/icons/twitter-x-icon";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
 import { Frame } from "@/components/frame";
+import { Frame } from "@/components/frame";
 import Link from "next/link";
 
 const ogConfig = {
@@ -200,6 +201,7 @@ const config: DocsThemeConfig = {
   components: {
     Frame,
   },
+  // title and descriptions are set here instead of head
   useNextSeoProps() {
     const { asPath } = useRouter();
 
