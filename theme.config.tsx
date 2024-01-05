@@ -4,6 +4,7 @@ import { type DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { DiscordIcon } from "@/components/icons/discord-icon";
 import { TwitterXIcon } from "@/components/icons/twitter-x-icon";
 import { LinkedInIcon } from "@/components/icons/linkedin-icon";
+import { Frame } from "@/components/frame";
 import Link from "next/link";
 
 const ogConfig = {
@@ -103,7 +104,7 @@ const config: DocsThemeConfig = {
     icon: <LinkedInIcon />,
   },
   chat: {
-    link: "https://discord.gg/PhgrpJfmFK",
+    link: "https://momentic.ai/discord",
     icon: <DiscordIcon />,
   },
   nextThemes: {
@@ -118,7 +119,7 @@ const config: DocsThemeConfig = {
           Copyright © {new Date().getFullYear()} Momentic, Inc. All rights
           reserved.
         </div>
- 
+
         <div className="md:order-last flex flex-col lg:flex-row gap-y-1 gap-x-4">
           <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-end">
             {footerLegalNav.map((nav) => (
@@ -150,10 +151,11 @@ const config: DocsThemeConfig = {
         : pathname;
     const canonical = new URL(asPath, "https://momentic.ai").toString();
 
-    const ogUrl =
-      pathname === "/"
-        ? `https://momentic.ai/default-og.png`
-        : `https://momentic.ai/api/og?title=${title}&description=${description}&note=${note}`;
+    const ogUrl = frontMatter.ogImage
+      ? `https://momentic.ai${frontMatter.ogImage}`
+      : pathname === "/"
+      ? `https://momentic.ai/default-og.png`
+      : `https://momentic.ai/api/og?title=${title}&description=${description}&note=${note}`;
 
     return (
       <>
@@ -170,7 +172,6 @@ const config: DocsThemeConfig = {
         <meta property="twitter:description" content={description} />
         <meta property="og:image" content={ogUrl} />
 
-        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> */}
         <link rel="icon" href="/favicon.png" type="image/png" />
 
         <meta name="apple-mobile-web-app-title" content={title} />
@@ -196,7 +197,9 @@ const config: DocsThemeConfig = {
     backToTop: true,
   },
   darkMode: false,
-
+  components: {
+    Frame,
+  },
   // title and descriptions are set here instead of head
   useNextSeoProps() {
     const { frontMatter } = useConfig();

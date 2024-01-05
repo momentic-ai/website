@@ -1,4 +1,5 @@
-import type { CSSProperties } from "react";
+import { cn } from "@/lib/utils";
+import { CSSProperties } from "react";
 
 interface ShimmerButtonProps {
   shimmerColor?: string;
@@ -11,12 +12,12 @@ interface ShimmerButtonProps {
   [key: string]: any; // ...props
 }
 
-export const ShimmerButton = ({
+const ShimmerButton = ({
   shimmerColor = "#ffffff",
-  shimmerSize = "1px",
+  shimmerSize = "0.1em",
   shimmerDuration = "1.5s",
   borderRadius = "100px",
-  background = "radial-gradient(ellipse 80% 50% at 50% 120%,rgba(62, 61, 117),rgba(18, 18, 38))",
+  background = "#2971c7",
   className,
   children,
   ...props
@@ -33,11 +34,11 @@ export const ShimmerButton = ({
           "--bg": background,
         } as CSSProperties
       }
-      className={`
-        flex text-white dark:text-black group relative cursor-pointer overflow-hidden whitespace-nowrap h-11 px-6  [background:var(--bg)] [border-radius:var(--radius)] transition-all shadow-[0_0_0_3px_rgba(255,255,255,0.3)_inset] hover:scale-105 duration-300 ${
-          className || ""
-        }
-      `}
+      className={cn(
+        "group relative cursor-pointer overflow-hidden whitespace-nowrap px-6 py-4 [background:var(--bg)] [border-radius:var(--radius)] ",
+        "transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_8px_rgba(41,113,199,0.7)]",
+        className
+      )}
       {...props}
     >
       {/* spark container */}
@@ -52,7 +53,12 @@ export const ShimmerButton = ({
       {/* backdrop */}
       <div className="absolute [background:var(--bg)] [border-radius:var(--radius)] [inset:var(--cut)]" />
       {/* content */}
-      {children}
+
+      <div className="pointer-events-none relative z-10 flex text-primary">
+        {children}
+      </div>
     </button>
   );
 };
+
+export default ShimmerButton;

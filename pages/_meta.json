@@ -7,6 +7,24 @@
       "layout": "raw"
     }
   },
+  "docs": {
+    "type": "page",
+    "title": "Docs"
+  },
+  "changelog": {
+    "type": "page",
+    "title": "Changelog",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "page",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "tos": {
     "title": "Terms of Service",
     "type": "page",
@@ -16,5 +34,12 @@
     "title": "Privacy Policy",
     "type": "page",
     "display": "hidden"
+  },
+  "404": {
+    "type": "page",
+    "theme": {
+      "typesetting": "article",
+      "timestamp": false
+    }
   }
 }

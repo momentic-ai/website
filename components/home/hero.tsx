@@ -1,14 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import CTSLogo from "../../public/cts.png";
-import NurtioLogo from "../../public/nurtio.webp";
-import TopRightLogo from "../../public/topright.png";
-import NeroLogo from "../../public/nero.svg";
-import BKOLogo from "../../public/bko.svg";
+import CTSLogo from "./images/cts.png";
+import NurtioLogo from "./images/nurtio.webp";
+import TopRightLogo from "./images/topright.png";
+import NeroLogo from "./images/nero.svg";
+import BKOLogo from "./images/bko.svg";
 import { Container } from "./container";
-import { ShimmerButton } from "./shimmer-button";
-import FigLogo from "../../public/fig.webp";
-import YCLogo from "../../public/yc.svg";
+import ShimmerButton from "@/components/magicui/shimmer-button";
+import FigLogo from "./images/fig.webp";
+import YCLogo from "./images/yc.svg";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
@@ -38,30 +39,24 @@ export function Hero() {
               <Image src={YCLogo} height={30} alt="YC" />
             </Link>
 
-            <div className="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
+            <div className="mt-16 flex flex-wrap items-center justify-center gap-y-4 gap-x-6">
               <Link
                 href="https://momentic.ai/waitlist"
                 target="_blank"
                 className="w-full sm:w-max"
               >
-                <ShimmerButton
-                  className="relative w-full sm:w-max flex items-center justify-center transition-all hover:shadow-[0_0_0_3px_rgba(255,255,255,0.3)_inset]"
-                  background="#2971c7"
-                >
-                  <span className="relative whitespace-pre text-center text-base font-semibold leading-none tracking-tight text-white z-10">
+                <ShimmerButton borderRadius="8px">
+                  <span className="whitespace-pre-wrap bg-clip-text text-center text-md font-semibold leading-none tracking-tight text-background">
                     Join the waitlist →
                   </span>
                 </ShimmerButton>
               </Link>
-              <Link
-                target="_blank"
-                href="https://momentic.ai/demo"
-                className="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-blue-600/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-              >
-                <span className="relative text-base font-semibold text-[#2971c7]">
+
+              <Button variant="outline" size="lg" asChild>
+                <Link target="_blank" href="https://momentic.ai/demo">
                   Book a demo
-                </span>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -85,37 +80,45 @@ export function Blur() {
   );
 }
 
+const IMAGE_SIZE = 30;
+
 export function Companies() {
-  const entries = [
+  const CUSTOMERS = [
     {
       url: "https://fig.investments",
       component: (
         <div className="flex items-center gap-3 text-xl font-bold text-black">
-          <Image src={FigLogo} alt="Fig" height={30} /> Fig
+          <Image src={FigLogo} alt="Fig" height={IMAGE_SIZE} /> Fig
         </div>
       ),
     },
     {
       url: "https://www.nero.com/ena/?vlang=us",
-      component: <Image src={NeroLogo} height={30} alt="Nero" />,
+      component: <Image src={NeroLogo} height={IMAGE_SIZE} alt="Nero" />,
     },
     {
       url: "https://www.cognitivetalentsolutions.com/",
       component: (
-        <Image src={CTSLogo} alt="Cognitive Talent Solutions" height={30} />
+        <Image
+          src={CTSLogo}
+          alt="Cognitive Talent Solutions"
+          height={IMAGE_SIZE}
+        />
       ),
     },
     {
       url: "https://www.nurtio.com/",
-      component: <Image src={NurtioLogo} alt="Nurtio" height={30} />,
+      component: <Image src={NurtioLogo} alt="Nurtio" height={IMAGE_SIZE} />,
     },
     {
       url: "https://www.gotopright.com/",
-      component: <Image src={TopRightLogo} alt="TopRight" height={30} />,
+      component: (
+        <Image src={TopRightLogo} alt="TopRight" height={IMAGE_SIZE} />
+      ),
     },
     {
       url: "https://www.bko.agency/",
-      component: <Image src={BKOLogo} alt="BKO" height={30} />,
+      component: <Image src={BKOLogo} alt="BKO" height={IMAGE_SIZE} />,
     },
   ];
 
@@ -128,7 +131,7 @@ export function Companies() {
       </div>
       <div className="slider">
         <div className="slide-track-5 hover:pause mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 justify-around items-center">
-          {[...entries, ...entries].map(({ component, url }, i) => (
+          {[...CUSTOMERS, ...CUSTOMERS].map(({ component, url }, i) => (
             <div
               className="w-[12rem] relative grayscale opacity-60 hover:opacity-100 transition duration-200 hover:grayscale-0"
               key={i}

@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 
-export default function TermlyEmbed(props: { id: string }) {
+const policies = {
+  "terms-of-service": "baf80a2e-dc67-46de-9ca8-2f7457179c32",
+  privacy: "47905712-56e1-4ad0-9bb7-8958f3263f90",
+};
+
+export function TermlyEmbed(props: { policy: keyof typeof policies }) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://app.termly.io/embed-policy.min.js";
@@ -11,7 +16,7 @@ export default function TermlyEmbed(props: { id: string }) {
     <div
       // @ts-ignore
       name="termly-embed"
-      data-id={props.id}
+      data-id={policies[props.policy]}
       data-type="iframe"
     ></div>
   );

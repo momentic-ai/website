@@ -3,49 +3,22 @@ title: Blog
 description: The latest news from the Momentic team.
 ---
 
-import { getPagesUnderRoute } from "nextra/context";
-import Link from "next/link";
+import { BlogIndex } from "@/components/blog/blog-index";
 
-export function BlogHeader() {
-  return (
-    <div className="max-w-screen-lg mx-auto pt-4 pb-8 mb-16 border-b border-gray-400 border-opacity-20 text-center">
-      <h1>
-        <span className="font-bold leading-tight lg:text-5xl">Blog</span>
-      </h1>
-      <p className="text-center text-gray-500 dark:text-gray-400 font-space-grotesk">
-        The latest news from the Momentic team.
-      </p>
-    </div>
-  );
-}
+<div className="md:container">
 
-export function BlogIndex() {
-  return getPagesUnderRoute("/blog").map((page) => {
-    return (
-      <div key={page.route} className="mb-10">
-        <Link
-          href={page.route}
-          style={{ color: "inherit", textDecoration: "none" }}
-          className="block font-semibold mt-8 text-2xl"
-          tabIndex="0"
-        >
-          {page.meta?.title || page.frontMatter?.title || page.name}
-        </Link>
-        <p className="opacity-80" style={{ marginTop: ".5rem" }}>
-          {page.frontMatter?.description}{" "}
-          <span className="inline-block nx-text-primary-600 nx-underline nx-decoration-from-font [text-underline-position:from-font] font-bold">
-            <Link href={page.route} tabIndex="-1">
-              {"Read more →"}
-            </Link>
-          </span>
-        </p>
-        {page.frontMatter?.date ? (
-          <p className="opacity-50 text-sm mt-2">{page.frontMatter.date}</p>
-        ) : null}
-      </div>
-    );
-  });
-}
+<div className="flex flex-col items-center content-center text-center my-10">
 
-<BlogHeader />
+<h1 className="text-6xl font-bold mb-5">Blog</h1>
+
+<span className="text-xl">
+  The latest updates from Momentic. See [Changelog](/changelog) for more product
+  updates.
+</span>
+
+</div>
+
 <BlogIndex />
+
+</div>
+

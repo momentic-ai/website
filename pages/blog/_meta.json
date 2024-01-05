@@ -1,11 +1,12 @@
 {
   "*": {
-    "display": "hidden",
     "theme": {
       "toc": false,
       "sidebar": false,
-      "pagination": false,
-      "typesetting": "article"
+      "pagination": true,
+      "typesetting": "article",
+      "layout": "default",
+      "breadcrumb": false
     }
   }
 }
