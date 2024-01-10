@@ -1,0 +1,23 @@
+# CircleCI
+
+While we recommend using the [SDK](/docs/sdk) for most use cases, you can also use our CircleCI orb to integrate with your CI/CD pipeline.
+
+## Usage
+
+You can view the Momentic orb on the [Developer Hub](https://circleci.com/developer/orbs/orb/momentic-ai/momentic-ai).
+Make sure to generate an API key in the Momentic app first. You can pass it as a parameter to the command as `api_key` or set it as an environment variable `MOMENTIC_API_KEY`.
+
+```yaml copy
+version: "2.1"
+
+orbs:
+  momentic: momentic-ai/momentic-ai@1
+
+workflows:
+  run-tests:
+    jobs:
+      - momentic-ai/run_tests:
+          tests: |
+            77875bf4-cc48-4ea0-bbdc-cba7136af2ad
+            c2c2fee4-4778-4bbb-8f0c-31f25f774726
+```
