@@ -1,6 +1,7 @@
 {
-  "ai-action": "AI action",
-  "ai-check": "AI check",
+  "overview": "Overview",
   "preset-actions": "Preset actions",
+  "ai-actions": "AI actions",
+  "ai-checks": "AI checks",
   "modules": "Modules"
 }
