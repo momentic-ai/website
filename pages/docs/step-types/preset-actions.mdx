@@ -1,4 +1,4 @@
-import { Callout } from "nextra/components";
+import { Callout, Steps } from "nextra/components";
 import Image from "next/image";
 
 # Preset actions
@@ -55,6 +55,32 @@ Additionally, for `Select` actions, the locator button populates the available d
 
 The first input field on interactive commands is always an _element descriptor_. This descriptor is passed to Momentic's AI web agent to locate a specific element during test runs. We recommend following the guidelines below to craft descriptors that are easily understandable by our web agent:
 
-1. **Be specific about element type**:
+<Steps>
 
-#### Reference accessibility attributes
+### Be specific about element type
+
+Describe the desired element with a specific [web
+accessibility
+role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles),
+such as "the submit **button**", "the homepage **link**", or "password **input**". If you are unsure what type
+of element you are targeting, you can use the [Chrome Dev
+Tools](https://developer.chrome.com/blog/full-accessibility-tree#full_accessibility_tree_in_devtools)
+to find out.
+
+### Include labels
+
+If the desired element has a label, include that in your descriptor, such as "the **search** button" or "the **username** textbox". Our AI web agent will generally attempt to match this label to the "name", "id", or "[aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)" attribute of HTML elements on your website. Defining ARIA attributes not only improves the performance of Momentic tests, but also helps your website stay compliant with [ADA standards](https://www.access-board.gov/ada/).
+
+### Include positioning cues
+
+Our AI web-agent understands basic relative positioning, and so you can provide cues such as "...**below** the 'Introduction' header" or "...**beside** the 'Back' button". Only use positioning cues if they are expected to be stable over time.
+
+### Avoid anti-patterns
+
+The following is currently unsupported by our AI agent:
+
+- Targeting an element using its appearance (e.g. color or size).
+- Targeting an element that is `hidden` by CSS or blocked by another element.
+- Targeting static elements, such as raw text (`<h1>`) or images (`<img>`). If a static element appears to be interactive on your website, it is likely because there is a hidden link (`<a>`) above or around your element and you should target that link instead. You can still write [assertions](/docs/step-types/ai-checks) about static elements.
+
+</Steps>
