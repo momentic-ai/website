@@ -17,6 +17,7 @@
   },
   "manually": "Manually",
   "cron": "Cron",
+  "sdk": "SDK",
   "webhook": "Webhook",
   "github-actions": "GitHub Actions",
   "circleci": "CircleCI",
@@ -35,7 +36,5 @@
   "-- Integrations": {
     "type": "separator",
     "title": "Integrations"
-  },
-  "api": "API",
-  "github": "GitHub"
+  }
 }
