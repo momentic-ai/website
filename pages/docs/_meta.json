@@ -17,8 +17,8 @@
   },
   "manually": "Manually",
   "cron": "Cron",
-  "sdk": "SDK",
   "webhook": "Webhook",
+  "sdk": "SDK",
   "github-actions": "GitHub Actions",
   "circleci": "CircleCI",
   "-- Viewing results": {
@@ -32,9 +32,5 @@
     "title": "Notifications"
   },
   "slack": "Slack",
-  "discord": "Discord",
-  "-- Integrations": {
-    "type": "separator",
-    "title": "Integrations"
-  }
+  "discord": "Discord"
 }
