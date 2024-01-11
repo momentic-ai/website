@@ -12,7 +12,7 @@ You can trigger a test run by sending a POST request to a webhook URL. This can 
 
 <Tabs items={["cURL", "fetch"]}>
   <Tabs.Tab>
-```bash copy
+```bash
 curl -X POST \
   -H 'Authorization: Bearer <INSERT_API_KEY_HERE>' \
   -H "Content-Type: application/json" \
@@ -20,7 +20,7 @@ curl -X POST \
 ```
   </Tabs.Tab>
   <Tabs.Tab>
-```js copy
+```js
 fetch("https://api.momentic.ai/v1/tests/d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4/queue", {
   method: "POST", 
   headers: {
@@ -36,7 +36,7 @@ fetch("https://api.momentic.ai/v1/tests/d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4/que
 
 <Tabs items={["cURL", "fetch"]}>
   <Tabs.Tab>
-```bash copy
+```bash
 curl -X POST \
   -H 'Authorization: Bearer <INSERT_API_KEY_HERE>' \
   -H "Content-Type: application/json" \
@@ -52,7 +52,7 @@ EOF
 ```
   </Tabs.Tab>
   <Tabs.Tab>
-```js copy
+```js
 fetch("https://api.momentic.ai/v1/tests/queue", {
   method: "POST", 
   headers: {

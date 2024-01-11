@@ -21,7 +21,7 @@ Make sure to generate an API key in the Momentic app first. You can pass it as a
 
 This is similar to running tests via webhook. The CLI will queue the tests to be run.
 
-```bash copy
+```bash
 npx momentic@latest run-tests --remote --tests c2c2fee4-4778-4bbb-8f0c-31f25f774726 5fed69c1-1a9b-47d1-8d10-afc0c587d8dd
 ```
 
@@ -29,14 +29,14 @@ npx momentic@latest run-tests --remote --tests c2c2fee4-4778-4bbb-8f0c-31f25f774
 
 This will automatically start a local web server and run the tests against it. It will replace the base URL of the tests with the local web server URL.
 
-```bash copy
+```bash
 # Make sure to install the browsers first
 npx momentic@latest install-browsers
 ```
 
 Use the `--start` flag to start the local web server before running the tests. Use the `--wait-on` flag to wait for the web server to be ready before running the tests.
 
-```bash copy
+```bash
 npx momentic@latest run-tests --local --start "npm run start" --wait-on http://localhost:3000 --tests c2c2fee4-4778-4bbb-8f0c-31f25f774726
 ```
 
@@ -44,7 +44,7 @@ npx momentic@latest run-tests --local --start "npm run start" --wait-on http://l
 
 This is an example of how to run tests in GitHub Actions. Make sure to set the `MOMENTIC_API_KEY` secret in your repository settings.
 
-```yaml copy
+```yaml
 name: Test
 
 env:
