@@ -22,6 +22,8 @@ In visual mode, you can make assertions about **visual** information on the page
 | **Logical statements**               | `The most expensive item is highest on the list` |
 | **Generate state of page**           | `The login page is visible`                      |
 
+Note that only the viewport visible in the test editor is provided to Momentic's web agent, and so assertions about hidden elements or elements off-screen will fail.
+
 ## Best practices
 
 We recommend following the guidelines below to craft effective and reliable assertions:
