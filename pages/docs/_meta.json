@@ -1,3 +1,30 @@
 {
-  "index": "Introduction"
+  "index": "Introduction",
+  "-- Creating a test": {
+    "type": "separator",
+    "title": "Creating a test"
+  },
+  "test-editor": "Test editor",
+  "step-types": "Step types",
+  "-- Running a test": {
+    "type": "separator",
+    "title": "Running a test"
+  },
+  "manual": "Manual",
+  "cron": "Cron",
+  "webhook": "Webhook",
+  "sdk": "Node.js SDK",
+  "github-actions": "GitHub Actions",
+  "circleci": "CircleCI",
+  "-- Viewing results": {
+    "type": "separator",
+    "title": "Viewing results"
+  },
+  "run-viewer": "Run viewer",
+  "-- Notifications": {
+    "type": "separator",
+    "title": "Notifications"
+  },
+  "slack": "Slack",
+  "discord": "Discord"
 }

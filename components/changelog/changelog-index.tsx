@@ -46,7 +46,7 @@ export const ChangelogIndex = ({ maxItems }: { maxItems?: number }) => (
                         month: "long",
                         day: "numeric",
                         timeZone: "UTC",
-                      }
+                      },
                     )
                   : null}
               </div>

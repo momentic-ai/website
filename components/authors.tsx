@@ -32,7 +32,7 @@ export const Author = (props: { author: string }) => {
   const author =
     ALL_AUTHORS[props.author] ??
     Object.values(ALL_AUTHORS).find(
-      (author) => author.firstName === props.author
+      (author) => author.firstName === props.author,
     );
 
   if (!author) return null;

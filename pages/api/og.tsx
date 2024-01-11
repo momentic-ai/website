@@ -9,10 +9,10 @@ export const config = {
 export default async function handler(request: NextRequest) {
   const [SpaceGrotesk, SpaceGroteskBold] = await Promise.all([
     fetch(
-      String(new URL("../../public/SpaceGrotesk-Medium.ttf", import.meta.url))
+      String(new URL("../../public/SpaceGrotesk-Medium.ttf", import.meta.url)),
     ).then((res) => res.arrayBuffer()),
     fetch(
-      String(new URL("../../public/SpaceGrotesk-Bold.ttf", import.meta.url))
+      String(new URL("../../public/SpaceGrotesk-Bold.ttf", import.meta.url)),
     ).then((res) => res.arrayBuffer()),
   ]);
 
@@ -47,7 +47,7 @@ export default async function handler(request: NextRequest) {
           style: "normal" as const,
         },
       ],
-    }
+    },
   );
 }
 

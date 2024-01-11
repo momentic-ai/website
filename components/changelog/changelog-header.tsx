@@ -9,7 +9,7 @@ export const ChangelogHeader = () => {
   const router = useRouter();
   const changelogPages = getPagesUnderRoute("/changelog");
   const page = changelogPages.find(
-    (page) => page.route === router.pathname
+    (page) => page.route === router.pathname,
   ) as Page & { frontMatter: any };
 
   const { title, description, ogImage, gif, date, author } = page.frontMatter;

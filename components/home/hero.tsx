@@ -3,6 +3,7 @@ import Image from "next/image";
 import CTSLogo from "./images/cts.png";
 import NurtioLogo from "./images/nurtio.webp";
 import TopRightLogo from "./images/topright.png";
+import GPTZeroLogo from "./images/gptzero.png";
 import NeroLogo from "./images/nero.svg";
 import BKOLogo from "./images/bko.svg";
 import { Container } from "./container";
@@ -80,10 +81,14 @@ export function Blur() {
   );
 }
 
-const IMAGE_SIZE = 30;
+const IMAGE_SIZE = 40;
 
 export function Companies() {
   const CUSTOMERS = [
+    {
+      url: "https://gptzero.me",
+      component: <Image src={GPTZeroLogo} alt="GPTZero" height={IMAGE_SIZE} />,
+    },
     {
       url: "https://fig.investments",
       component: (
@@ -125,15 +130,14 @@ export function Companies() {
   return (
     <div className="mt-36 text-center lg:mt-32">
       <div className="uppercase text-sm font-semibold tracking-wider text-zinc-600 dark:text-zinc-400">
-        Trusted by companies shipping at{" "}
-        <span className="dark:text-white text-black semibold">blazing</span>{" "}
-        speeds
+        TRUSTED BY TEAMS FROM AROUND THE WORLD
       </div>
+
       <div className="slider">
-        <div className="slide-track-5 hover:pause mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 justify-around items-center">
+        <div className="slide-track-7 hover:pause mt-6 flex justify-evenly gap-[20px] items-center">
           {[...CUSTOMERS, ...CUSTOMERS].map(({ component, url }, i) => (
             <div
-              className="w-[12rem] relative grayscale opacity-60 hover:opacity-100 transition duration-200 hover:grayscale-0"
+              className="relative grayscale opacity-60 hover:opacity-100 transition duration-200 hover:grayscale-0"
               key={i}
             >
               <a

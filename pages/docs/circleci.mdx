@@ -1,0 +1,32 @@
+---
+description: How to integrate Momentic with CircleCI.
+---
+
+import { Callout } from "nextra/components";
+
+# CircleCI
+
+<Callout type="info">
+  While we recommend using the [SDK](/docs/sdk) for most use cases, you can also
+  use our CircleCI orb to integrate with your CI/CD pipeline.
+</Callout>
+
+## Usage
+
+You can view the Momentic orb on the [Developer Hub](https://circleci.com/developer/orbs/orb/momentic-ai/momentic-ai).
+Make sure to generate an API key in the Momentic app first. You can pass it as a parameter to the command as `api_key` or set it as an environment variable `MOMENTIC_API_KEY`.
+
+```yaml
+version: "2.1"
+
+orbs:
+  momentic: momentic-ai/momentic-ai@1
+
+jobs:
+  test-deploy:
+    steps:
+      - momentic-ai/run-tests:
+          tests: |
+            82143d83-d06f-4f05-98f4-f81a694dd23f
+            1cdd7b28-f583-4cdd-9b94-eefab55b1518
+```

@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": "pages/_app.mdx",
+      "options": {
+        "parser": "babel"
+      }
+    }
+  ]
+}

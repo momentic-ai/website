@@ -6,3 +6,4 @@ tsconfig.tsbuildinfo
 **/public/*.txt
 .vercel
 .env*.local
+.DS_Store

@@ -1,0 +1,30 @@
+---
+description: How to use modules in Momentic tests.
+---
+
+# Modules
+
+**Modules** are saved groups of steps that can be reused across different tests. They are the basic unit of sharing on the Momentic platform. Modules can contain any step aside from other modules.
+
+Modules do not have a starting URL and do not perform any navigation when started. As such, it is up to consumers of the module to ensure the module is being called at the right time.
+
+## Creating a module
+
+Using the Momentic [test editor](/docs/test-editor), first create the steps that will be part of the module. You can use the `Run from start` button to verify that all steps are working correctly.
+
+To create the module, click the `Create module` button next to `Run from start`. Next, select all steps you wish to include in the module by clicking the checkboxes next to each step's type. Note that other modules cannot be part of the sequence.
+
+<span style={{ display: "flex", justifyContent: "center" }}>
+  <Frame>![Module creation](/images/docs/module-creation.png)</Frame>
+</span>
+<div style={{ textAlign: "center" }}>
+  <i>Creating a module</i>
+</div>
+
+## Using a module
+
+Modules can be added to tests using the same `Add new step` menu used for other step types. The same module can be included in a test multiple times.
+
+## Editing a module
+
+Editing a module is possible from within any test that includes that module. Note that any edits made are propagated instantly to all other consumers of the module.

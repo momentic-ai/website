@@ -1,0 +1,88 @@
+---
+description: How to use preset actions in Momentic tests.
+---
+
+import { Steps } from "nextra/components";
+import PresetActionBadge from "@/components/preset-action-badge";
+
+# Preset actions
+
+**Preset actions** are isolated steps that perform a single action on the current page and succeed immediately when that action is complete. They are the most granular steps available on Momentic, and serve as the building blocks for [AI actions](/docs/step-types/ai-actions).
+
+In general, preset actions can be divided into two categories:
+
+1. **Interactive**: Actions that interact with elements on the page, such as clicking on an element, selecting from a dropdown, or typing some content into an element.
+2. **Browser**: Actions that affect the browser itself, such as hitting the back button, switching tabs, or refreshing the page.
+
+## Preset action types
+
+The following table lists the available preset action types:
+
+| Name            | Type                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   | Options                                                                                                                                                                                 |
+| --------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Click`         | <PresetActionBadge type="interactive" /> | Locate an element on the page matching a descriptor, and then click on it.<br/><br/>The element must be actionable for the click to succeed: it cannot be hidden, disabled, or animating.                                                                                                                                                                                                                                                     | `Double click`: double click on the element.<br/><br/> `Right click`: Right click on the element.                                                                                       |
+| `Press keys`    | <PresetActionBadge type="interactive" /> | Press a sequence of keys on the page.<br/><br/>Multiple keys can be pressed simultaneously by concatenating them with `+` (e.g. `CTRL+A`). Key presses may be used to invoke browser shortcuts.                                                                                                                                                                                                                                               | None                                                                                                                                                                                    |
+| `Type`          | <PresetActionBadge type="interactive" /> | Execute a `Click` command followed by a `Press` command. The element targeted should be an [input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) element.                                                                                                                                                                                                                                                                  | `Press enter`: press the enter key after typing completes (can be used to submit forms easily).<br/><br/> `Clear existing`: clear any existing content in the text input before typing. |
+| `Select option` | <PresetActionBadge type="interactive" /> | Select an option from a dropdown menu. The element targeted should be a [select](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element.                                                                                                                                                                                                                                                                                   | None                                                                                                                                                                                    |
+| `Wait`          | <PresetActionBadge type="browser" />     | Wait for the specified number of seconds.<br/><br/>This step type should be used rarely since other actions already automatically wait for network requests to complete, up to a maximum of `8` seconds.<br/><br/>If you need to wait for a particularly long request to complete, or if you expect the DOM to change after a large initial delay, you can use the `Wait` action to ensure Momentic actions on the correct state of the page. | None                                                                                                                                                                                    |
+| `Scroll up`     | <PresetActionBadge type="browser" />     | Scroll up by a single page height.                                                                                                                                                                                                                                                                                                                                                                                                            | None                                                                                                                                                                                    |
+| `Scroll down`   | <PresetActionBadge type="browser" />     | Scroll down by a single page height.                                                                                                                                                                                                                                                                                                                                                                                                          | None                                                                                                                                                                                    |
+| `Go back`       | <PresetActionBadge type="browser" />     | Return to the previous page in the browser history.                                                                                                                                                                                                                                                                                                                                                                                           | None                                                                                                                                                                                    |
+| `Go forward`    | <PresetActionBadge type="browser" />     | Advance to the next page in the browser history. A `Go back` step must be invoked prior to this action.                                                                                                                                                                                                                                                                                                                                       | None                                                                                                                                                                                    |
+| `Navigate`      | <PresetActionBadge type="browser" />     | Go to the specified URL.                                                                                                                                                                                                                                                                                                                                                                                                                      | None                                                                                                                                                                                    |
+| `Switch tab`    | <PresetActionBadge type="browser" />     | Switch to the tab with the specified URL. This action can be useful for following pop-ups or redirects that open in a new tab or window.<br/><br/>The input value is used to [substring](https://en.wikipedia.org/wiki/Substring) match the URLs of each available page. The first page that matches is set as active.                                                                                                                        | None                                                                                                                                                                                    |
+| `Set cookie`    | <PresetActionBadge type="browser" />     | Set a cookie that will persist throughout this browser session. The cookie should follow the [HTTP Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) format.<br/><br/>This action can be useful for reusing sessions and bypassing the need to re-authenticate, however users must manage cookie expiry.                                                                                                      | None                                                                                                                                                                                    |
+
+## Best practices
+
+### Using the locator button
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+  <Frame>![Locator Button](/images/docs/locator-button.png)</Frame>
+</div>
+<div style={{ textAlign: "center" }}>
+  <i>
+    The locator button is available on commands that target a specific element
+    (`Click`, `Type`, `Select`)
+  </i>
+</div>
+
+The eye-shaped locator button allows users to preview what element would be targeted by an interactive step. When pressed, Momentic's AI web agent uses the user-provided descriptor to find a matching element on the page, and then highlights that element. If no element matches, an error message is displayed on the step card.
+
+This feature can be used to "dry-run" actions and ensure that the correct element will be targeted during a test run. If Momentic highlights the wrong element, you can adjust your element descriptor without having to re-run all steps (view our guidelines for writing accurate descriptors [here](#best-practices)).
+
+Additionally, for `Select` actions, the locator button populates the available dropdown values in the test editor. Using the locator button is highly recommended for `Select` steps to avoid the possibility of misspelling the desired dropdown value.
+
+### Writing element descriptors
+
+The first input field on interactive commands is always an _element descriptor_. This descriptor is passed to Momentic's AI web agent to locate a specific element during test runs. We recommend following the guidelines below to craft descriptors that are easily understandable by our web agent:
+
+<Steps>
+
+### Be specific about element type
+
+Describe the desired element with a specific [web
+accessibility
+role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles),
+such as "the submit **button**", "the homepage **link**", or "password **input**". If you are unsure what type
+of element you are targeting, you can use the [Chrome Dev
+Tools](https://developer.chrome.com/blog/full-accessibility-tree#full_accessibility_tree_in_devtools)
+to find out.
+
+### Include labels
+
+If the desired element has a label, include that in your descriptor, such as "the **search** button" or "the **username** textbox". Our AI web agent will generally attempt to match this label to the "name", "id", or "[aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)" attribute of HTML elements on your website. Defining ARIA attributes not only improves the performance of Momentic tests, but also helps your website stay compliant with [ADA standards](https://www.access-board.gov/ada/).
+
+### Include positioning cues
+
+Our AI web agent understands basic relative positioning, and so you can provide cues such as "...**below** the 'Introduction' header" or "...**beside** the 'Back' button". Only use positioning cues if they are expected to be stable over time.
+
+### Avoid anti-patterns
+
+The following is currently unsupported by our AI agent:
+
+- Targeting an element using its appearance (e.g. color or size).
+- Targeting an element that is `hidden` by CSS or blocked by another element.
+- Targeting static elements, such as raw text (`<h1>`) or images (`<img>`). If a static element appears to be interactive on your website, it is likely because there is a hidden link (`<a>`) above or around your element and you should target that link instead. You can still write [assertions](/docs/step-types/ai-checks) about static elements.
+
+</Steps>

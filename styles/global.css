@@ -72,22 +72,8 @@
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground !important;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  footer {
-    @apply bg-background text-foreground !important;
-  }
-
-  h1 {
-    @apply text-4xl sm:text-5xl font-bold tracking-tight;
-  }
-
-  h2 {
-    @apply text-4xl sm:text-5xl font-bold tracking-tight;
+    @apply bg-background text-foreground;
   }
 }
 
@@ -137,6 +123,11 @@
   animation: scroll-5 30s linear infinite;
   display: flex;
   width: calc(12rem * 5 * 2);
+}
+.slider .slide-track-7 {
+  animation: scroll-5 30s linear infinite;
+  display: flex;
+  width: calc(12rem * 7 * 2);
 }
 .slider .slide-track-10 {
   animation: scroll-5 30s linear infinite;

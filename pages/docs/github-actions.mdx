@@ -1,0 +1,41 @@
+---
+description: How to integrate Momentic with GitHub Actions.
+---
+
+import { Callout } from "nextra/components";
+
+# GitHub Actions
+
+<Callout type="info">
+  While we recommend using the [SDK](/docs/sdk) for most use cases, you can also
+  use our GitHub action to integrate with your CI/CD pipeline.
+</Callout>
+
+## Usage
+
+You can view the Momentic action on the [GitHub Marketplace](https://github.com/marketplace/actions/momentic-run-tests).
+Make sure to generate an API key in the Momentic app first. Set it as an environment variable `MOMENTIC_API_KEY`.
+
+```yaml
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Run tests using Momentic
+        uses: momentic-ai/run-tests@v1
+        env:
+          MOMENTIC_API_KEY: ${{ secrets.MOMENTIC_API_KEY }}
+        with:
+          tests: |-
+            8f20cad6-2fd5-4019-bcbc-26fb617f36c5
+```

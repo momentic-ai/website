@@ -93,7 +93,9 @@ const config: DocsThemeConfig = {
           }
           span:hover {
             mask-position: 100%;
-            transition: mask-position 1s ease, -webkit-mask-position 1s ease;
+            transition:
+              mask-position 1s ease,
+              -webkit-mask-position 1s ease;
           }
         `}</style>
       </span>
@@ -154,8 +156,8 @@ const config: DocsThemeConfig = {
     const ogUrl = frontMatter.ogImage
       ? `https://momentic.ai${frontMatter.ogImage}`
       : pathname === "/"
-      ? `https://momentic.ai/default-og.png`
-      : `https://momentic.ai/api/og?title=${title}&description=${description}&note=${note}`;
+        ? `https://momentic.ai/default-og.png`
+        : `https://momentic.ai/api/og?title=${title}&description=${description}&note=${note}`;
 
     return (
       <>
@@ -208,12 +210,12 @@ const config: DocsThemeConfig = {
         asPath === "/"
           ? ogConfig.title
           : asPath.startsWith("/blog/")
-          ? "%s | Momentic Blog"
-          : asPath.startsWith("/docs/")
-          ? "%s | Momentic Docs"
-          : asPath.startsWith("/changelog/")
-          ? "%s | Momentic Changelog"
-          : "%s | Momentic",
+            ? "%s | Momentic Blog"
+            : asPath.startsWith("/docs/")
+              ? "%s | Momentic Docs"
+              : asPath.startsWith("/changelog/")
+                ? "%s | Momentic Changelog"
+                : "%s | Momentic",
     };
   },
   primaryHue: 216,
