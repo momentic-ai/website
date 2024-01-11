@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
 const policies = {
-  "terms-of-service": "baf80a2e-dc67-46de-9ca8-2f7457179c32",
-  privacy: "47905712-56e1-4ad0-9bb7-8958f3263f90",
+  "terms-of-service": "8839207b-d836-4d18-8bf7-1ebe23d9e264",
+  privacy: "1a252ccf-f01a-41e9-986d-9b4bd0f51a96",
 };
 
 export function TermlyEmbed(props: { policy: keyof typeof policies }) {
