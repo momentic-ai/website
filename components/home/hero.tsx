@@ -3,6 +3,7 @@ import Image from "next/image";
 import CTSLogo from "./images/cts.png";
 import NurtioLogo from "./images/nurtio.webp";
 import TopRightLogo from "./images/topright.png";
+import GPTZeroLogo from "./images/gptzero.png";
 import NeroLogo from "./images/nero.svg";
 import BKOLogo from "./images/bko.svg";
 import { Container } from "./container";
@@ -84,6 +85,10 @@ const IMAGE_SIZE = 30;
 
 export function Companies() {
   const CUSTOMERS = [
+    {
+      url: "https://gptzero.me",
+      component: <Image src={GPTZeroLogo} alt="GPTZero" height={IMAGE_SIZE} />,
+    },
     {
       url: "https://fig.investments",
       component: (
