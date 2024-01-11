@@ -13,11 +13,11 @@ version: "2.1"
 orbs:
   momentic: momentic-ai/momentic-ai@1
 
-workflows:
-  run-tests:
-    jobs:
-      - momentic-ai/run_tests:
+jobs:
+  test-deploy:
+    steps:
+      - momentic-ai/run-tests:
           tests: |
-            77875bf4-cc48-4ea0-bbdc-cba7136af2ad
-            c2c2fee4-4778-4bbb-8f0c-31f25f774726
+            82143d83-d06f-4f05-98f4-f81a694dd23f
+            1cdd7b28-f583-4cdd-9b94-eefab55b1518
 ```
