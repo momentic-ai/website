@@ -6,12 +6,12 @@ export function Demo() {
       <div
         style={{
           position: "relative",
-          paddingBottom: "calc(68.43674367436743% + 44px)",
+          paddingBottom: "calc(70.63696369636963% + 88px)",
           height: 0,
         }}
       >
         <iframe
-          src="https://app.supademo.com/embed/-o_4pra2XX31YXCLCqr-p"
+          src="https://app.supademo.com/embed/vMhNTqNO23lDmuhBgVvF-"
           frameBorder="0"
           allowFullScreen
           style={{

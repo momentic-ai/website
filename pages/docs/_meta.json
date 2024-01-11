@@ -4,6 +4,7 @@
     "type": "separator",
     "title": "Creating a test"
   },
+  "test-editor": "Test editor",
   "step-types": "Step types",
   "test-options": "Test options",
   "-- Running a test": {
