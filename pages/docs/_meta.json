@@ -6,7 +6,6 @@
   },
   "test-editor": "Test editor",
   "step-types": "Step types",
-  "test-options": "Test options",
   "-- Running a test": {
     "type": "separator",
     "title": "Running a test"
