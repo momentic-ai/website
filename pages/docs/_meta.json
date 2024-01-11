@@ -13,7 +13,7 @@
   "manual": "Manual",
   "cron": "Cron",
   "webhook": "Webhook",
-  "sdk": "SDK",
+  "sdk": "Node.js SDK",
   "github-actions": "GitHub Actions",
   "circleci": "CircleCI",
   "-- Viewing results": {
