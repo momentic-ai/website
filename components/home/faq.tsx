@@ -36,6 +36,15 @@ const faq = [
     ),
   },
   {
+    question: <>What is the enterprise tier?</>,
+    answer: (
+      <>
+        The enterprise tier is custom and feature white-glove onboarding,
+        priority support, custom SLAs, SAML/SSO among many others.
+      </>
+    ),
+  },
+  {
     question: <>How do I create tests?</>,
     answer: (
       <>
