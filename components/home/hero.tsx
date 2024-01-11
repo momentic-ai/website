@@ -130,9 +130,7 @@ export function Companies() {
   return (
     <div className="mt-36 text-center lg:mt-32">
       <div className="uppercase text-sm font-semibold tracking-wider text-zinc-600 dark:text-zinc-400">
-        Trusted by companies shipping at{" "}
-        <span className="dark:text-white text-black semibold">blazing</span>{" "}
-        speeds
+        TRUSTED BY TEAMS FROM AROUND THE WORLD
       </div>
 
       <div className="slider">

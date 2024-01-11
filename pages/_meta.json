@@ -11,15 +11,15 @@
     "type": "page",
     "title": "Docs"
   },
-  "changelog": {
+  "blog": {
+    "title": "Blog",
     "type": "page",
-    "title": "Changelog",
     "theme": {
       "layout": "full"
     }
   },
-  "blog": {
-    "title": "Blog",
+  "changelog": {
+    "title": "Changelog",
     "type": "page",
     "theme": {
       "layout": "full"
