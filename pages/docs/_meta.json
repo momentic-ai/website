@@ -1,10 +1,5 @@
 {
   "index": "Introduction",
-  "-- Getting started": {
-    "type": "separator",
-    "title": "Getting Started"
-  },
-  "quickstart": "Quickstart",
   "-- Creating a test": {
     "type": "separator",
     "title": "Creating a test"
