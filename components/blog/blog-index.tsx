@@ -13,7 +13,7 @@ export const BlogIndex = ({ maxItems }: { maxItems?: number }) => (
             <Image
               src={
                 page.frontMatter.ogImage ||
-                `/api/og?title=${page.frontMatter.title}&description=${page.frontMatter.description}&note=${page.frontMatter.date}`
+                `/api/og?title=${encodeURIComponent(page.frontMatter.title)}`
               }
               className="object-cover transform group-hover:scale-105 transition-transform"
               alt={page.frontMatter?.title ?? "Blog post image"}
