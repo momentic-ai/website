@@ -143,9 +143,9 @@ const config: DocsThemeConfig = {
   },
   head: () => {
     const { asPath, pathname } = useRouter();
-    const { frontMatter } = useConfig();
+    const { frontMatter, title: pageTitle } = useConfig();
 
-    const title = String(frontMatter.title || ogConfig.title);
+    const title = String(frontMatter.title || pageTitle || ogConfig.title);
     const description = String(frontMatter.description || ogConfig.description);
     const note =
       (frontMatter.date as string | undefined) ?? pathname === "/"
@@ -157,7 +157,11 @@ const config: DocsThemeConfig = {
       ? `https://momentic.ai${frontMatter.ogImage}`
       : pathname === "/"
         ? `https://momentic.ai/default-og.png`
-        : `https://momentic.ai/api/og?title=${title}&description=${description}&note=${note}`;
+        : `https://momentic.ai/api/og?title=${encodeURIComponent(
+            title,
+          )}&description=${encodeURIComponent(
+            description,
+          )}&note=${encodeURIComponent(note)}`;
 
     return (
       <>
