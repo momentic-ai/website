@@ -26,8 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 21
       - name: Run tests using Momentic
         uses: momentic-ai/run-tests@v1
         env:
