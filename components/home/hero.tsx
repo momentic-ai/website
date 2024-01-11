@@ -53,9 +53,7 @@ export function Hero() {
               </Link>
 
               <Button variant="outline" size="lg" asChild>
-                <Link target="_blank" href="https://momentic.ai/demo">
-                  Book a demo
-                </Link>
+                <Link href="/enterprise">Book a demo</Link>
               </Button>
             </div>
           </div>

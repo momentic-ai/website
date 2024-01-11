@@ -25,6 +25,13 @@
       "layout": "full"
     }
   },
+  "enterprise": {
+    "title": "Enterprise",
+    "type": "page",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "tos": {
     "title": "Terms of Service",
     "type": "page",
