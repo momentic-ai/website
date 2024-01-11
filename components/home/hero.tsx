@@ -81,7 +81,7 @@ export function Blur() {
   );
 }
 
-const IMAGE_SIZE = 30;
+const IMAGE_SIZE = 40;
 
 export function Companies() {
   const CUSTOMERS = [
@@ -134,11 +134,12 @@ export function Companies() {
         <span className="dark:text-white text-black semibold">blazing</span>{" "}
         speeds
       </div>
+
       <div className="slider">
-        <div className="slide-track-5 hover:pause mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 justify-around items-center">
+        <div className="slide-track-7 hover:pause mt-6 flex justify-evenly gap-[20px] items-center">
           {[...CUSTOMERS, ...CUSTOMERS].map(({ component, url }, i) => (
             <div
-              className="w-[12rem] relative grayscale opacity-60 hover:opacity-100 transition duration-200 hover:grayscale-0"
+              className="relative grayscale opacity-60 hover:opacity-100 transition duration-200 hover:grayscale-0"
               key={i}
             >
               <a
