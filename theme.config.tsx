@@ -189,7 +189,7 @@ const config: DocsThemeConfig = {
               : asPath.startsWith("/changelog")
                 ? "%s | Momentic Changelog"
                 : "%s | Momentic",
-      description: frontMatter.description,
+      description: frontMatter.description || OG_CONFIG.description,
     };
   },
   primaryHue: 216,
