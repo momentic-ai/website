@@ -35,7 +35,7 @@ The following table lists the available preset action types:
 | `Switch tab`    | <PresetActionBadge type="browser" />     | Switch to the tab with the specified URL. This action can be useful for following pop-ups or redirects that open in a new tab or window.<br/><br/>The input value is used to [substring](https://en.wikipedia.org/wiki/Substring) match the URLs of each available page. The first page that matches is set as active.                                                                                                                        | None                                                                                                                                                                                    |
 | `Set cookie`    | <PresetActionBadge type="browser" />     | Set a cookie that will persist throughout this browser session. The cookie should follow the [HTTP Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) format.<br/><br/>This action can be useful for reusing sessions and bypassing the need to re-authenticate, however users must manage cookie expiry.                                                                                                      | None                                                                                                                                                                                    |
 
-## Tips for writing a preset action
+## Best practices
 
 ### Using the locator button
 
@@ -51,7 +51,7 @@ The following table lists the available preset action types:
 
 The eye-shaped locator button allows users to preview what element would be targeted by an interactive step. When pressed, Momentic's AI web agent uses the user-provided descriptor to find a matching element on the page, and then highlights that element. If no element matches, an error message is displayed on the step card.
 
-This feature can be used to "dry-run" actions and ensure that the correct element will be targeted during a test run. If Momentic highlights the wrong element, you can adjust your element descriptor without having to re-run all steps (view our tips for writing accurate descriptors [here](#writing-element-descriptors)).
+This feature can be used to "dry-run" actions and ensure that the correct element will be targeted during a test run. If Momentic highlights the wrong element, you can adjust your element descriptor without having to re-run all steps (view our guidelines for writing accurate descriptors [here](#best-practices)).
 
 Additionally, for `Select` actions, the locator button populates the available dropdown values in the test editor. Using the locator button is highly recommended for `Select` steps to avoid the possibility of misspelling the desired dropdown value.
 

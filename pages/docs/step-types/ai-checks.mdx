@@ -1,0 +1,43 @@
+import { Steps } from "nextra/components";
+
+# AI checks
+
+## Overview
+
+**AI checks** are human-understandable assertions powered by AI that can be used to verify arbitrary facts about the current page. They are more powerful and reliable than the `expect` or `assert` statements in traditional testing libraries.
+
+In the default mode, you can make assertions about **text** content on the page. For example:
+
+| Category                          | Example                                                     |
+| --------------------------------- | ----------------------------------------------------------- |
+| **Presence (or absence) of text** | `Verify the page shows 3 search results`                    |
+| **Logical statements**            | `The publish date of this article is more than 30 days ago` |
+| **General state of page**         | `There is no error message present on the page`             |
+
+In visual mode, you can make assertions about **visual** information on the page. For example:
+
+| Category                             | Example                                          |
+| ------------------------------------ | ------------------------------------------------ |
+| **Presence (or absence) of imagery** | `Verify the buy button is blue`                  |
+| **Logical statements**               | `The most expensive item is highest on the list` |
+| **Generate state of page**           | `The login page is visible`                      |
+
+## Best practices
+
+We recommend following the guidelines below to craft effective and reliable assertions:
+
+<Steps>
+### Keep it high level
+Avoid language that is unnecessarily specific for your intended use case. For example, asserting that is `the button to submit the form is clickable` is better than asserting `the button labelled 'Submit!' is clickable` since the label may change.
+
+Similarly, asserting that `there are 3 search results` is better than `there are 3 different results` if the contents of the results doesn't actually matter.
+
+### Avoid non-deterministic rendering
+
+[Caching](#caching) dramatically improves the performance and reliability of AI assertions, but depends on your website content rendering in the same way on every run. If possible, avoid using elements that are inherently random, such as a current date display.
+
+</Steps>
+
+## Caching
+
+AI assertion results are cached by default. This means on scheduled runs, if your website content has not changed, the cached assertion result will be reused. This behavior can be disabled by unchecking the "Cache results" box on the AI assertion step.
