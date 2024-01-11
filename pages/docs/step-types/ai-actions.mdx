@@ -4,8 +4,6 @@ description: How to use AI actions in Momentic tests.
 
 # AI actions
 
-## Introduction
-
 **AI actions** transform human-understandable goals into groups of [preset commands](/docs/step-types/preset-actions). When an AI action is invoked, our web agent continuously generates and runs preset commands until the specified goal has been achieved. For example, the goal "add ice cream to my cart" on a shopping page may transform into a series of clicks.
 
 Since they are powered by LLMs instead of hardcoded [selectors](https://playwright.dev/docs/other-locators), AI actions are **self-healing**, adapting automatically to minor changes to your website without human involvement. We recommend using AI actions to complete user flows such as logins, searches, and checkouts where the specific actions taken are not as important as being able to accomplish the goal.

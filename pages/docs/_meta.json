@@ -21,7 +21,6 @@
     "title": "Viewing results"
   },
   "run-viewer": "Run viewer",
-  "debugging-test": "Debugging a test",
   "-- Notifications": {
     "type": "separator",
     "title": "Notifications"
