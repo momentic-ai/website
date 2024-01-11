@@ -10,7 +10,7 @@
     "type": "separator",
     "title": "Running a test"
   },
-  "manually": "Manually",
+  "manual": "Manual",
   "cron": "Cron",
   "webhook": "Webhook",
   "sdk": "SDK",
