@@ -68,13 +68,94 @@ test('Basic test example', async ({ page }) => {
 **Implement Page Navigation:** Leverage Playwright's powerful capabilities to navigate through web pages efficiently. Incorporate **page.goto()** to initiate navigation, enhancing the realism of your tests and providing valuable insights into the behavior of your web application.
 
 
+## Let's see some code in action 👀
+
+**Example 1: Open a browser and navigate to a website**
+```js
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto('https://example.com');
+  await browser.close();
+})();
+```
+
+**Example 2: Fill out a form and take a screenshot**
+```js
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  
+  await page.goto('https://example.com');
+  
+  // Fill out a form
+  await page.fill('input[name="username"]', 'your_username');
+  await page.fill('input[name="password"]', 'your_password');
+  
+  // Take a screenshot
+  await page.screenshot({ path: 'example.png' });
+  
+  await browser.close();
+})();
+
+```
+
+**Example 3: Clicking a button and handling navigation**
+```js
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  
+  await page.goto('https://example.com');
+  
+  // Click a button
+  await page.click('button#submit-button');
+  
+  // Wait for navigation
+  await page.waitForNavigation();
+  
+  // Verify the new page URL
+  console.log(`Current URL: ${page.url()}`);
+  
+  await browser.close();
+})();
+```
+
+**Example 4: Evaluate page content**
+```js
+const { chromium } = require('playwright');
+
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  
+  await page.goto('https://example.com');
+  
+  // Evaluate page content
+  const title = await page.title();
+  console.log(`Page title: ${title}`);
+  
+  const paragraphText = await page.$eval('p', (p) => p.textContent);
+  console.log(`Paragraph text: ${paragraphText}`);
+  
+  await browser.close();
+})();
+
+```
+
 <Frame >
   ![intro meme](/images/blog/playwright_tut/meme_1.png)
 </Frame>
 
-Nooo absolutely not, Mometic will wrap all this mess for you  
+Absolutely not! Mometic is your **time-saving ally**, ready to effortlessly tidy up this chaos for you. Stay tuned for the game-changer in automation testing productivity – Mometic
 
-stay tuned  🔔
+Stay tuned 🔔
 
 
 
