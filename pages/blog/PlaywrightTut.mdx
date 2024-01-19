@@ -12,7 +12,7 @@ import { Tabs } from "nextra/components";
 <BlogHeader
   title="A Brief Introduction to Playwright"
   description="Mastering Playwright: Unveiling the Essentials in this Comprehensive Introduction"
-  date="Jan 16, 2024"
+  date="Jan 22, 2024"
   authors={["hrutik"]}
 />
 
@@ -72,12 +72,21 @@ test('Basic test example', async ({ page }) => {
 
 **Example 1: Open a browser and navigate to a website**
 ```js
+// Importing the 'chromium' object from the 'playwright' library.
 const { chromium } = require('playwright');
 
+// Asynchronous function to launch a Chromium browser, navigate to a website, and then close the browser.
 (async () => {
+  // Launching a new Chromium browser instance.
   const browser = await chromium.launch();
+
+  // Creating a new page within the browser.
   const page = await browser.newPage();
+
+  // Navigating to the 'https://example.com' website.
   await page.goto('https://example.com');
+
+  // Closing the Chromium browser.
   await browser.close();
 })();
 ```
@@ -146,6 +155,64 @@ const { chromium } = require('playwright');
   
   await browser.close();
 })();
+
+```
+
+**Ugh! Enough of theoretical code 😵**
+
+Let's see some real action 🤩
+
+Let's test text elements on the Novu Page. (Novu is opensource infrastructure for developers 🚨)
+
+```js
+// Importing necessary functions and modules from Playwright test library
+import test, { page, expect } from "@playwright/test";
+import { describe } from "node:test";
+
+// Defining a test suite with a description
+describe("Nohu test ", () => {
+  
+  // Test case for "Get started button"
+  test("Get started button", async ({ page }) => {
+    
+    // Navigating to the specified URL
+    await page.goto("https://novu.co/");
+
+    // Pausing the test execution for debugging purposes
+    await page.pause();
+
+    // Using expect to assert that a link with role "Get Started" exists and has the text "Get Started"
+    await expect(
+      page.getByRole("link", { name: "Get Started" }).nth(1)
+    ).toHaveText("Get Started");
+
+    // Checking if an element with text "Get Started" exists and clicking on it if it does
+    if (await page.$("text=Get Started")) {
+      await page.locator("text=Get Started").nth(1).click();
+    }
+  });
+
+  // Test case for "Book a demo button"
+  test("Book a demo button", async ({ page }) => {
+    
+    // Navigating to the specified URL
+    await page.goto("https://novu.co/");
+
+    // Pausing the test execution for debugging purposes
+    await page.pause();
+
+    // Checking if an element with text "star us" exists and clicking on it if it does
+    if (await page.$("text=star us")) {
+      await page.locator("text=star us").nth(1).click();
+    }
+
+    // Intentionally failing the test by asserting that a heading has the text "ABCD"
+    // This line is marked to intentionally fail the test for demonstration purposes
+    await expect(
+      page.getByRole("heading", { name: "Used by innovative companies" })
+    ).toHaveText("ABCD");
+  });
+});
 
 ```
 
