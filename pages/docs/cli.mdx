@@ -11,13 +11,19 @@ import { Callout } from "nextra/components";
   [Discord](https://momentic.ai/discord)!
 </Callout>
 
-The [Momentic CLI](https://github.com/momentic-ai/sdk) is a [NPM package](https://www.npmjs.com/package/momentic) that allows you to easily integrate Momentic's AI into your application and workflows.
+The Momentic CLI is a [NPM package](https://www.npmjs.com/package/momentic) that allows you to easily integrate Momentic tests into your existing software development lifecycle (SDLC). Using the CLI, you can manage and run Momentic tests on any machine, from developer laptops to CI/CD executors.
+
+## Setup
+
+All CLI commands require a valid API key, which you can generate through the [API keys tab](https://app.momentic.ai/api-keys) on the Momentic cloud app. Your key is tied to your user account and should be kept secret.
+
+The API key can be passed as to the CLI using the `--api-key` option, or you can set the environment variable `MOMENTIC_API_KEY` in your terminal.
 
 ## CLI Usage
 
-Make sure to generate an API key in the Momentic app first. You can pass it as a parameter to the CLI or set it as an environment variable `MOMENTIC_API_KEY`. For help run `npx momentic@latest --help`.
-
 ### Commands
+
+For help, run `npx momentic@latest --help`.
 
 These are the available commands:
 
