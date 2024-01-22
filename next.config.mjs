@@ -12,6 +12,15 @@ const withNextra = nextra({
  */
 const nextConfig = {
   transpilePackages: ["react-tweet", "geist"],
+  redirects: async () => {
+    return [
+      {
+        source: "/docs/sdk",
+        destination: "/docs/cli",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 // eslint-disable-next-line import/no-default-export
