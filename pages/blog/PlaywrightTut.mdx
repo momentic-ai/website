@@ -1,5 +1,5 @@
 ---
-title: Kick-Starting Playwright Automation 
+title: Kick-Starting Playwright Automation
 date: 2024/01/11
 description: Unveiling the Essentials in this Comprehensive Introduction.
 tag: Tutorial
@@ -19,7 +19,8 @@ import { Tabs } from "nextra/components";
 Welcome to an insightful exploration of **Playwright** – a powerful tool transforming the landscape of web automation and browser testing. In this blog, we embark on a journey to unravel the intricacies of Playwright, a cutting-edge open-source framework designed to simplify and enhance the process of browser automation. From its inception to its core features, we'll delve into the fundamentals that make Playwright a game-changer in the world of web development. Whether you're a seasoned developer seeking to optimize testing workflows or a curious newcomer eager to grasp the potential of this tool, join us as we navigate through a brief introduction to Playwright, unlocking the doors to a more efficient and robust web automation experience.
 
 ## What the heck is Playwright 🤔?
-Software testing is a critical phase in the software development life cycle, ensuring that applications meet specified requirements and function as intended. Playwright, an open-source automation framework developed by Microsoft, has become a valuable tool in the field of software testing. Here's a brief overview of how Playwright facilitates effective software testing 
+
+Software testing is a critical phase in the software development life cycle, ensuring that applications meet specified requirements and function as intended. Playwright, an open-source automation framework developed by Microsoft, has become a valuable tool in the field of software testing. Here's a brief overview of how Playwright facilitates effective software testing
 
 **Playwright’s key features include**
 **Multi-Browser Support:** Playwright supports multiple browsers, including Chromium, Firefox, and WebKit. This flexibility enables developers to test their applications across different browser engines, ensuring cross-browser compatibility.
@@ -40,8 +41,7 @@ Software testing is a critical phase in the software development life cycle, ens
 
 In summary, Playwright's rich set of features empowers developers to conduct thorough and efficient browser testing, ensuring the reliability and performance of web applications across diverse environments.
 
-
-## Setting Up Playwright 
+## Setting Up Playwright
 
 Before setting up Playwright, make sure you have the following **prerequisites** installed on your system:
 
@@ -74,39 +74,25 @@ Once you have these prerequisites in place, you can proceed with the installatio
 **5. Install Playwright**
 Get started by installing Playwright using npm , yarn or pnpm.
 
-<Tabs items={["npm", "yarn","pnpm"]}>
-  <Tabs.Tab>
- ```bash
-  npm init playwright@latest
-```
-  </Tabs.Tab>
-  <Tabs.Tab>
-```bash
-yarn create playwright
-```
-  </Tabs.Tab>
-  <Tabs.Tab>
-```bash
-pnpm create playwright
-```
-  </Tabs.Tab>
+<Tabs items={["npm", "yarn", "pnpm"]}>
+  <Tabs.Tab>```bash npm init playwright@latest ```</Tabs.Tab>
+  <Tabs.Tab>```bash yarn create playwright ```</Tabs.Tab>
+  <Tabs.Tab>```bash pnpm create playwright ```</Tabs.Tab>
 </Tabs>
 
 _If you want to install Playwright with support for a specific browser, you can use:_
-  
-  ```bash
-  ## For Chromium
-  npm init playwright@latest playwright-chromium
 
-  ## For Firefox
-  npm init playwright@latest playwright-firefox
+```bash
+## For Chromium
+npm init playwright@latest playwright-chromium
 
-  ## For WebKit
-  npm init playwright@latest playwright-webkit
+## For Firefox
+npm init playwright@latest playwright-firefox
 
-  ```
+## For WebKit
+npm init playwright@latest playwright-webkit
 
-
+```
 
 **6. Create a Test File: Structuring Your Playwright Tests for Success**
 In the realm of Playwright testing, a crucial step is creating a dedicated test file to organize and execute your automated tests seamlessly. Crafting an efficient test file not only enhances the maintainability of your test suite but also contributes to a smoother testing workflow.
@@ -114,63 +100,57 @@ In the realm of Playwright testing, a crucial step is creating a dedicated test 
 Create a new file (e.g., test.spec.js) where you'll write your Playwright tests. Here's a simple example:
 
 ```js
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test");
 
-test('Basic test example', async ({ page }) => {
-  await page.goto('https://novu.co/');
+test("Basic test example", async ({ page }) => {
+  await page.goto("https://novu.co/");
   const title = await page.title();
-  expect(title).toBe('Novu - The open-source notification infrastructure');
+  expect(title).toBe("Novu - The open-source notification infrastructure");
 });
 ```
-
 
 ## Best Practices for Writing Playwright Test Files:
 
 Writing effective and maintainable Playwright test files involves following best practices to ensure the reliability and scalability of your test suite. Here are some best practices for writing Playwright test files:
 
-**Organize Test Cases:** 
+**Organize Test Cases:**
 
-* Structure your test files logically, grouping them based on functionality or modules.
+- Structure your test files logically, grouping them based on functionality or modules.
 
-* Use a naming convention that clearly identifies the purpose of each test file.
+- Use a naming convention that clearly identifies the purpose of each test file.
 
 ```js
 // test/authentication.test.js
 
-describe('Authentication Tests', () => {
+describe("Authentication Tests", () => {
   // Test cases for login functionality
-  it('should allow a user to login successfully', async () => {
+  it("should allow a user to login successfully", async () => {
     // Test implementation...
   });
 
-  it('should display an error message for invalid credentials', async () => {
+  it("should display an error message for invalid credentials", async () => {
     // Test implementation...
   });
 });
-
 ```
 
+**Use Descriptive Test Names:**
 
-
-**Use Descriptive Test Names:** 
-
-* Provide meaningful and descriptive names for your test cases. This makes it easier to understand the purpose of each test and helps in debugging.
+- Provide meaningful and descriptive names for your test cases. This makes it easier to understand the purpose of each test and helps in debugging.
 
 ```js
-it('should allow a user to login successfully', async () => {
+it("should allow a user to login successfully", async () => {
   // Test implementation...
 });
 
-it('should display an error message for invalid credentials', async () => {
+it("should display an error message for invalid credentials", async () => {
   // Test implementation...
 });
-  
-  ```
+```
 
+**Modularize Test Code:**
 
-**Modularize Test Code:** 
-
-* Break down your tests into modular components or functions. This promotes code reuse and makes it easier to maintain and update your test suite.
+- Break down your tests into modular components or functions. This promotes code reuse and makes it easier to maintain and update your test suite.
 
 ```js
 // utils/authenticationUtils.js
@@ -180,30 +160,28 @@ async function loginUser(page, username, password) {
 }
 
 module.exports = { loginUser };
-
 ```
 
 ```js
 // test/authentication.test.js
 
-const { loginUser } = require('../utils/authenticationUtils');
+const { loginUser } = require("../utils/authenticationUtils");
 
-it('should allow a user to login successfully', async () => {
-  await loginUser(page, 'validUsername', 'validPassword');
+it("should allow a user to login successfully", async () => {
+  await loginUser(page, "validUsername", "validPassword");
   // Assertions...
 });
 
-it('should display an error message for invalid credentials', async () => {
-  await loginUser(page, 'invalidUsername', 'invalidPassword');
+it("should display an error message for invalid credentials", async () => {
+  await loginUser(page, "invalidUsername", "invalidPassword");
   // Assertions...
 });
-
 ```
 
 **Setup and Teardown:**
 
-* Leverage the *beforeAll*, *beforeEach*, *afterEach*, and *afterAll* hooks for setup and teardown tasks.
-* Properly manage the browser context, ensuring a clean state before each test.
+- Leverage the _beforeAll_, _beforeEach_, _afterEach_, and _afterAll_ hooks for setup and teardown tasks.
+- Properly manage the browser context, ensuring a clean state before each test.
 
 ```js
 beforeAll(async () => {
@@ -213,48 +191,43 @@ beforeAll(async () => {
 afterAll(async () => {
   // Teardown browser and context...
 });
-
-
 ```
 
 **Parameterize Tests:**
 
-* Parameterize your test cases to run with different sets of data. This helps maximize test coverage without duplicating code.
-
+- Parameterize your test cases to run with different sets of data. This helps maximize test coverage without duplicating code.
 
 ```js
-
 const credentials = [
-  { username: 'validUsername', password: 'validPassword' },
-  { username: 'invalidUsername', password: 'invalidPassword' },
+  { username: "validUsername", password: "validPassword" },
+  { username: "invalidUsername", password: "invalidPassword" },
 ];
 
-it.each(credentials)('should handle login with %s credentials', async (cred) => {
-  await loginUser(page, cred.username, cred.password);
-  // Assertions...
-});
-
-
+it.each(credentials)(
+  "should handle login with %s credentials",
+  async (cred) => {
+    await loginUser(page, cred.username, cred.password);
+    // Assertions...
+  },
+);
 ```
 
 **Handle Asynchronous Operations:**
 
-* Be mindful of Playwright's asynchronous nature. Utilize async and await to handle promises gracefully.
-* Use the built-in functions like *waitFor*, *waitForSelector*, and *waitForTimeout* for synchronization.
+- Be mindful of Playwright's asynchronous nature. Utilize async and await to handle promises gracefully.
+- Use the built-in functions like _waitFor_, _waitForSelector_, and _waitForTimeout_ for synchronization.
 
 ```js
-it('should allow a user to login successfully', async () => {
-  await loginUser(page, 'validUsername', 'validPassword');
-  await page.waitForSelector('#dashboard');
+it("should allow a user to login successfully", async () => {
+  await loginUser(page, "validUsername", "validPassword");
+  await page.waitForSelector("#dashboard");
   // Assertions...
 });
-
 ```
-
 
 **Use Page Objects:**
 
-* Implement the Page Object Model (POM) to encapsulate the interaction with pages and components. This promotes code maintainability and reusability.
+- Implement the Page Object Model (POM) to encapsulate the interaction with pages and components. This promotes code maintainability and reusability.
 
 ```js
 // pageObjects/LoginPage.js
@@ -272,29 +245,27 @@ class LoginPage {
 }
 
 module.exports = LoginPage;
-
 ```
 
 ```js
 // test/authentication.test.js
 
-const LoginPage = require('../pageObjects/LoginPage');
+const LoginPage = require("../pageObjects/LoginPage");
 const loginPage = new LoginPage(page);
 
-it('should allow a user to login successfully', async () => {
-  await loginPage.login('validUsername', 'validPassword');
+it("should allow a user to login successfully", async () => {
+  await loginPage.login("validUsername", "validPassword");
   // Assertions...
 });
-
 ```
-
 
 ## Let's see some code in action 👀
 
 **Example 1: Open a browser and navigate to a website**
+
 ```js
 // Importing the 'chromium' object from the 'playwright' library.
-const { chromium } = require('playwright');
+const { chromium } = require("playwright");
 
 // Asynchronous function to launch a Chromium browser, navigate to a website, and then close the browser.
 (async () => {
@@ -305,7 +276,7 @@ const { chromium } = require('playwright');
   const page = await browser.newPage();
 
   // Navigating to the 'https://example.com' website.
-  await page.goto('https://example.com');
+  await page.goto("https://example.com");
 
   // Closing the Chromium browser.
   await browser.close();
@@ -313,70 +284,71 @@ const { chromium } = require('playwright');
 ```
 
 **Example 2: Fill out a form and take a screenshot**
+
 ```js
-const { chromium } = require('playwright');
+const { chromium } = require("playwright");
 
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  
-  await page.goto('https://example.com');
-  
+
+  await page.goto("https://example.com");
+
   // Fill out a form
-  await page.fill('input[name="username"]', 'your_username');
-  await page.fill('input[name="password"]', 'your_password');
-  
+  await page.fill('input[name="username"]', "your_username");
+  await page.fill('input[name="password"]', "your_password");
+
   // Take a screenshot
-  await page.screenshot({ path: 'example.png' });
-  
+  await page.screenshot({ path: "example.png" });
+
   await browser.close();
 })();
-
 ```
 
 **Example 3: Clicking a button and handling navigation**
+
 ```js
-const { chromium } = require('playwright');
+const { chromium } = require("playwright");
 
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  
-  await page.goto('https://example.com');
-  
+
+  await page.goto("https://example.com");
+
   // Click a button
-  await page.click('button#submit-button');
-  
+  await page.click("button#submit-button");
+
   // Wait for navigation
   await page.waitForNavigation();
-  
+
   // Verify the new page URL
   console.log(`Current URL: ${page.url()}`);
-  
+
   await browser.close();
 })();
 ```
 
 **Example 4: Evaluate page content**
+
 ```js
-const { chromium } = require('playwright');
+const { chromium } = require("playwright");
 
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  
-  await page.goto('https://example.com');
-  
+
+  await page.goto("https://example.com");
+
   // Evaluate page content
   const title = await page.title();
   console.log(`Page title: ${title}`);
-  
-  const paragraphText = await page.$eval('p', (p) => p.textContent);
+
+  const paragraphText = await page.$eval("p", (p) => p.textContent);
   console.log(`Paragraph text: ${paragraphText}`);
-  
+
   await browser.close();
 })();
-
 ```
 
 **Ugh! Enough of theoretical code 😵**
@@ -392,10 +364,8 @@ import { describe } from "node:test";
 
 // Defining a test suite with a description
 describe("Nohu test ", () => {
-  
   // Test case for "Get started button"
   test("Get started button", async ({ page }) => {
-    
     // Navigating to the specified URL
     await page.goto("https://novu.co/");
 
@@ -404,7 +374,7 @@ describe("Nohu test ", () => {
 
     // Using expect to assert that a link with role "Get Started" exists and has the text "Get Started"
     await expect(
-      page.getByRole("link", { name: "Get Started" }).nth(1)
+      page.getByRole("link", { name: "Get Started" }).nth(1),
     ).toHaveText("Get Started");
 
     // Checking if an element with text "Get Started" exists and clicking on it if it does
@@ -415,7 +385,6 @@ describe("Nohu test ", () => {
 
   // Test case for "Book a demo button"
   test("Book a demo button", async ({ page }) => {
-    
     // Navigating to the specified URL
     await page.goto("https://novu.co/");
 
@@ -430,21 +399,14 @@ describe("Nohu test ", () => {
     // Intentionally failing the test by asserting that a heading has the text "ABCD"
     // This line is marked to intentionally fail the test for demonstration purposes
     await expect(
-      page.getByRole("heading", { name: "Used by innovative companies" })
+      page.getByRole("heading", { name: "Used by innovative companies" }),
     ).toHaveText("ABCD");
   });
 });
-
 ```
 
-<Frame >
-  ![intro meme](/images/blog/playwright_tut/meme_1.png)
-</Frame>
+<Frame>![intro meme](/images/blog/playwright_tut/meme_1.png)</Frame>
 
 Absolutely not! Mometic is your **time-saving ally**, ready to effortlessly tidy up this chaos for you. Stay tuned for the game-changer in automation testing productivity – Mometic
 
 Stay tuned 🔔
-
-
-
-
