@@ -2,27 +2,25 @@
 description: How to integrate Momentic with GitHub Actions.
 ---
 
-import { Callout } from "nextra/components";
-
 # GitHub Actions
-
-<Callout type="info">
-  While we recommend using the [CLI](/docs/cli) for most use cases, you can also
-  use our GitHub action to integrate with your CI/CD pipeline.
-</Callout>
 
 ## Usage
 
-You can view the Momentic action on the [GitHub Marketplace](https://github.com/marketplace/actions/momentic-run-tests).
-Make sure to generate an API key in the Momentic app first. Set it as an environment variable `MOMENTIC_API_KEY`.
+This is an example of how to setup Momentic tests to run on every pull request and commit to `main` using [GitHub Actions](https://github.com/features/actions). Make sure to set the `MOMENTIC_API_KEY` secret in your [repository settings](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+
+The YAML below assumes that the command `npm run start` will start your application on `localhost:3000`. Customize these values to suit your build process.
 
 ```yaml
 name: Test
+
+env:
+  MOMENTIC_API_KEY: ${{ secrets.MOMENTIC_API_KEY }}
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   run-tests:
@@ -31,11 +29,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - name: Run tests using Momentic
-        uses: momentic-ai/run-tests@v1
-        env:
-          MOMENTIC_API_KEY: ${{ secrets.MOMENTIC_API_KEY }}
-        with:
-          tests: |-
-            8f20cad6-2fd5-4019-bcbc-26fb617f36c5
+      - run: npm install
+
+        # make sure to install browsers first before running tests locally (not required for remote tests)
+      - run: npx momentic@latest install-browsers
+
+        # run tests locally
+      - run: npx momentic@latest run --local --start "npm run start" --wait-on http://localhost:3000 --tests c2c2fee4-4778-4bbb-8f0c-31f25f774726
+
+        # run tests remotely
+      - run: npx momentic@latest run --remote --tests c2c2fee4-4778-4bbb-8f0c-31f25f774726
 ```
