@@ -2,31 +2,43 @@
 description: How to integrate Momentic with CircleCI.
 ---
 
-import { Callout } from "nextra/components";
-
 # CircleCI
 
-<Callout type="info">
-  While we recommend using the [SDK](/docs/sdk) for most use cases, you can also
-  use our CircleCI orb to integrate with your CI/CD pipeline.
-</Callout>
+## Example
 
-## Usage
+Make sure to generate an API key in the Momentic app first. The YAML example below assumes you have stored this key as a secret named `MOMENTIC_KEY` in your [project settings](https://circleci.com/docs/env-vars/).
 
-You can view the Momentic orb on the [Developer Hub](https://circleci.com/developer/orbs/orb/momentic-ai/momentic-ai).
-Make sure to generate an API key in the Momentic app first. You can pass it as a parameter to the command as `api_key` or set it as an environment variable `MOMENTIC_API_KEY`.
+This configuration also assumes that the command `npm run start` will start your app on `localhost:3000`. If you are testing against a persistent staging or production server, you can remove `--wait-on` and `--start`.
 
 ```yaml
-version: "2.1"
-
-orbs:
-  momentic: momentic-ai/momentic-ai@1
+version: 2.1
 
 jobs:
-  test-deploy:
+  momentic:
+    docker:
+      - image: cimg/node:18.16.1
     steps:
-      - momentic-ai/run-tests:
-          tests: |
-            82143d83-d06f-4f05-98f4-f81a694dd23f
-            1cdd7b28-f583-4cdd-9b94-eefab55b1518
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npx playwright install-deps && npx --yes momentic@latest install-browsers
+      - run:
+          name: Pull all tests
+          command: npx momentic@latest pull --api-key ${MOMENTIC_KEY} --all
+      - run:
+          name: Run all tests locally
+          command: npx momentic@latest run --api-key ${MOMENTIC_KEY} --wait-on localhost:3000 --local --start 'npm run start' momentic/
+      - run:
+          name: Push all tests if successful
+          command: npx momentic@latest push --api-key ${MOMENTIC_KEY} momentic/
+      - run:
+          name: Failure handler
+          command: |
+            echo "oh no! tests failed!"
+          when: on_fail
+
+workflows:
+  ci:
+    jobs:
+      - momentic
 ```

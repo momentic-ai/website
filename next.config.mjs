@@ -12,6 +12,40 @@ const withNextra = nextra({
  */
 const nextConfig = {
   transpilePackages: ["react-tweet", "geist"],
+  redirects: async () => {
+    return [
+      {
+        source: "/docs/sdk",
+        destination: "/docs/cli",
+        permanent: true,
+      },
+      {
+        source: "/chat",
+        destination: "https://discord.gg/PhgrpJfmFK",
+        permanent: true,
+      },
+      {
+        source: "/discord",
+        destination: "https://discord.gg/PhgrpJfmFK",
+        permanent: true,
+      },
+      {
+        source: "/beta",
+        destination: "https://discord.gg/PhgrpJfmFK",
+        permanent: true,
+      },
+      {
+        source: "/demo",
+        destination: "https://cal.com/wuweiweiwu/momentic-demo",
+        permanent: true,
+      },
+      {
+        source: "/waitlist",
+        destination: "https://tally.so/r/nraKxo",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 // eslint-disable-next-line import/no-default-export

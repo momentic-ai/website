@@ -30,17 +30,44 @@ const faq = [
     answer: (
       <>
         Test scripts (Cypress, Playwright, Puppeteer, Selenium) are flakey and
-        are a burden to maintain as your application grows. Our AI is able to
-        adapt to your application and only surface real issues.
+        are a burden to maintain as your application grows. Our AI agent is able
+        to adapt to your application and only surface real issues.
       </>
     ),
   },
   {
-    question: <>What is the enterprise tier?</>,
+    question: (
+      <>
+        How does it compare to{" "}
+        <code
+          className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10"
+          dir="ltr"
+          data-language="jsx"
+          data-theme="default"
+        >
+          <span className="line">[insert production monitoring tool]</span>
+        </code>
+        ?
+      </>
+    ),
     answer: (
       <>
-        The enterprise tier is custom and feature white-glove onboarding,
-        priority support, custom SLAs, SAML/SSO among many others.
+        Production monitoring tools (Datadog, Rainforest QA, New Relic) are
+        primarily used to alert you when your production app is down. Momentic
+        supports developers, QA engineers, and product managers through the
+        entire application lifecycle. Our tests can be invoked on local
+        machines, CI/CD pipelines, and production environments. Momentic tests
+        can even live alongside your codebase and be version controlled.
+      </>
+    ),
+  },
+  {
+    question: <>Do you offer an enterprise tier?</>,
+    answer: (
+      <>
+        We offer a custom-priced enterprise tier that includes white-glove
+        onboarding, priority support, custom SLAs, SAML/SSO, unlimited runs, and
+        on-prem deployment options.
       </>
     ),
   },
@@ -48,8 +75,8 @@ const faq = [
     question: <>How do I create tests?</>,
     answer: (
       <>
-        Describe a user flow using natural language and our AI will do the rest.
-        Zero code required.
+        Describe a user flow using natural language and our AI agent will do the
+        rest. Zero code required.
       </>
     ),
   },

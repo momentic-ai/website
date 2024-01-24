@@ -1,0 +1,187 @@
+---
+description: How to use the Momentic CLI.
+---
+
+import { Callout } from "nextra/components";
+import { Tabs } from "nextra/components";
+
+# Local CLI
+
+<Callout type="default" emoji="⭐">
+  CLI access is included in the Team and Enterprise plans.
+</Callout>
+
+<Callout type="info">
+  The CLI is currently in beta. Please report any issues you find in our
+  [Discord](https://momentic.ai/discord)!
+</Callout>
+
+The Momentic CLI is a [NPM package](https://www.npmjs.com/package/momentic) that allows you to easily integrate Momentic tests into your existing software development lifecycle (SDLC). Using the CLI, you can manage and run Momentic tests on any machine, from developer laptops to CI/CD executors.
+
+## Setup
+
+All CLI commands require a valid API key, which you can generate through the [API keys tab](https://app.momentic.ai/api-keys) on the Momentic cloud app. Your key is tied to your user account and should be kept secret.
+
+The API key can be passed as to the CLI using the `--api-key` option, or you can set the environment variable `MOMENTIC_API_KEY` in your terminal.
+
+## CLI Usage
+
+### Exporting tests to YAML
+
+```bash
+npx momentic@latest pull example-test-path another-test-path
+```
+
+```bash
+npx momentic@latest pull --all
+```
+
+This command downloads tests from Momentic's servers in YAML format. This can be useful for sharing tests within your organization as well as setting up [developer workflows](#run-tests-locally-recommended-for-local-and-ci).
+
+You can choose to pull all tests or specify individual tests by path. A **test path** is a processed version of a test's name and folder path that is guaranteed to be unique in your organization. To generate the test path, the test name is lowercased and any spaces are converted to underscores. For example, `Hello World` is converted to `hello-world`.
+
+You can obtain a test's path by clicking its name in the test editor, which will automatically copy the path to your clipboard. Or, from the main test directory, select the "Copy test path" option from the three-dot menu:
+
+<Frame className="w-28" center caption="Copy test path menu">
+  ![Copy test path menu](/images/docs/copy-test-path.png)
+</Frame>
+
+Any modules that a pulled test depends on will also be exported to YAML. The CLI stores module YAMLs is a directory called `modules` alongside your test export. **The `modules` folder name is fixed and should not be altered**. Doing so will affect [importing](#importing-tests-from-yaml) and [running](#running-tests) tests.
+
+### Importing tests from YAML
+
+```bash
+npx momentic@latest push momentic/test-file.yaml path/to/dir/of/yaml
+```
+
+This command uploads tests stored in local YAML files to Momentic's servers. This operation immediately overwrites the state of any tests stored remotely, so users should refrain from editing tests through the web console while CLI actions are occurring.
+
+You may specify either individual test files or directories of YAML files.
+
+If a pushed test depends on a module, the CLI will attempt to upload the dependent module as well by looking for the `modules` folder that was created during `npx momentic pull`.
+
+### Running tests
+
+You can use the CLI to run tests on the machine the CLI is installed on, or queue tests remotely on Momentic's infrastructure. The recommended approach depends on whether or not you are testing the production version of your app.
+
+#### Run tests locally (recommended for local and CI)
+
+This command starts an automated browser on the local machine, runs one or more Momentic tests, and waits for the result to complete. You can choose to use local test versions that are read from the contents of YAML files on your machine, or remote test versions stored on Momentic's servers.
+
+  <Tabs items={["Use local YAML", "Use remote test versions"]}>
+  <Tabs.Tab>
+
+```bash
+npx momentic@latest run --local path/to/example-test.yaml path/to/dir/of/yamls/
+```
+
+A common developer-friendly workflow is to commit Momentic YAML files to your [Git](https://www.atlassian.com/git/tutorials/using-branches) repository, and then pass those Momentic tests to `npx momentic run` in a CI pipeline.
+
+Momentic YAML files can be obtained from [the CLI](#exporting-tests-to-yaml), or from the Momentic web console using the Export feature.
+
+You can run single YAML files or directories of YAML files. As such, an easy way to run all tests available locally is to invoke `npx momentic run .` in your root Momentic folder.
+
+If a test depends on a module, the module YAML must also be present on disk. The CLI will search for a `modules` folder at every level of the test's file path, starting at the file's immediate directory. For example, for a test located at `/a/b/c/test.yaml`, the CLI will look for `/a/b/c/modules/module-name.yaml`, `/a/b/modules/module-name.yaml`, and so forth.
+
+  </Tabs.Tab>
+
+{" "}
+
+<Tabs.Tab>
+
+```bash
+npx momentic@latest run --local test-path another-test-path
+```
+
+You can also choose to _run_ the test on the local machine while _reading_ the
+test contents from the Momentic cloud servers. This can be useful for testing
+internal sites that are not accessible over the public internet, or if you do not wish to use a Git repository.
+
+Test paths are described in a [previous section](#exporting-tests-to-yaml). The test paths should not files or directories that exist locally.
+
+</Tabs.Tab>
+
+</Tabs>
+
+#### Queue tests on Momentic servers (recommended for production)
+
+This CLI command queues one or more tests to run immediately on Momentic's infrastructure. This is similar to starting tests manually through the web console. Tests queued through the CLI execute independently of any scheduled runs you may have also setup.
+
+You can queue tests in three ways:
+
+<Tabs items={["By test path", "By UUID", "All tests"]}>
+  <Tabs.Tab>
+
+```bash
+npx momentic@latest run --remote my-test-path another-test-path
+```
+
+You can run specific tests by providing one or more **test paths** to the CLI. Test paths are described in a [previous section](#exporting-tests-to-yaml).
+
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+
+```bash
+npx momentic@latest run --remote 43794bcf-8f83-47a3-af32-9adbf513aeb9
+```
+
+You can also queue Momentic tests by UUID. You can obtain the UUID of a test from the browser URL when viewing the test in the Momentic web editor. If you have exported your test locally, the UUID is also visible in the `id` field of the test YAML file.
+
+Queuing tests by UUID can be preferable for scripting use cases, as this method is resilient to users renaming tests.
+
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```bash
+npx momentic@latest run --remote --all
+```
+  To queue all tests in your organization, pass the `--all` flag and no other arguments. Your tests will run in parallel. Waiting on the results of all tests queued remotely is currently not supported - please follow instructions in the [local run](#run-tests-locally-or-in-ci) section instead.
+  </Tabs.Tab>
+</Tabs>
+
+Once queued, you can visit the [Results](https://app.momentic.ai/runs) tab on the web console to view the progress of your test invocation.
+
+#### Execution Options
+
+The following options are available to you when invoking `npx momentic run`:
+
+| Option              | Mode   | Description                                                                                                                                                       |
+| ------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--wait-on`         | Local  | Overrides the base URL of the test. The CLI will automatically wait for this URL to become accessible before starting tests. Useful for testing `localhost` apps. |
+| `--wait-on-timeout` | Local  | Timeout associated with `--wait-on`.                                                                                                                              |
+| `--start`           | Local  | Arbitrary start command that will be invoked by the CLI before tests begin (e.g. `npm run start`)                                                                 |
+| `--parallel` `-p`   | Local  | Parallelization factor: number of tests to run at the same time. Defaults to 1 (serial exeuction).                                                                |
+| `--all` `-a`        | Remote | Queue all tests in the organization.                                                                                                                              |
+
+### CLI Versions
+
+<Callout type="warning">
+  The minimum supported CLI version is currently `0.0.18`.
+</Callout>
+
+<Callout type="warning">
+  If a new update is available to the Momentic CLI, `npx` may prompt you to
+  confirm before starting the download. To bypass this check in non-interactive
+  environments such as CI pipelines, you can invoke `npx --yes` instead.
+</Callout>
+
+Run `npx momentic --version` to view the current version of your CLI.
+
+We generally recommend you use the latest version of the Momentic CLI at all times to avoid any behavior drift between running tests on the Momentic web console and other environments. For this reason, all code samples on this page append `@latest` to `npx` commands.
+
+The Momentic CLI will also warn you when your test schema is out of date and needs to be migrated.
+
+### Miscellaneous
+
+#### Help
+
+To see a list of all available commands, run `npx momentic@latest --help`. Detailed help for each command is also available, for example: `npx momentic@latest run --help`.
+
+#### Log level
+
+To customize the log level used for console output, you can supply the `--log-level` option _before_ any command. For example, to run a local test with debug logging enabled:
+
+```
+npx momentic@latest --log-level debug run --local my-test.yaml
+```
