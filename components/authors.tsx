@@ -13,6 +13,12 @@ export const ALL_AUTHORS = {
     image: "/images/people/jeff.jpg",
     twitter: "itsjeffan",
   },
+  hrutik: {
+    firstName: "Hrutik",
+    name: "Hrutik Kumthekar",
+    image: "/images/people/hrutik.png",
+    twitter: "bushido_hk",
+  },
 } as const;
 
 export const Authors = (props: { authors: (keyof typeof ALL_AUTHORS)[] }) => {
