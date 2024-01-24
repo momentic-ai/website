@@ -4,9 +4,11 @@ description: How to integrate Momentic with CircleCI.
 
 # CircleCI
 
-## Example
+You can use the [Momentic CLI](/docs/cli) to easily integrate Momentic tests into your CircleCI jobs and workflows.
 
-Make sure to generate an API key in the Momentic app first. The YAML example below assumes you have stored this key as a secret named `MOMENTIC_KEY` in your [project settings](https://circleci.com/docs/env-vars/).
+## Usage
+
+Make sure to generate an API key in the Momentic app first. The YAML example below assumes you have stored this key as a secret named `MOMENTIC_API_KEY` in your [project settings](https://circleci.com/docs/env-vars/).
 
 This configuration also assumes that the command `npm run start` will start your app on `localhost:3000`. If you are testing against a persistent staging or production server, you can remove `--wait-on` and `--start`.
 
@@ -24,13 +26,13 @@ jobs:
           command: npx playwright install-deps && npx --yes momentic@latest install-browsers
       - run:
           name: Pull all tests
-          command: npx momentic@latest pull --api-key ${MOMENTIC_KEY} --all
+          command: npx momentic@latest pull --api-key ${MOMENTIC_API_KEY} --all
       - run:
           name: Run all tests locally
-          command: npx momentic@latest run --api-key ${MOMENTIC_KEY} --wait-on localhost:3000 --local --start 'npm run start' momentic/
+          command: npx momentic@latest run --api-key ${MOMENTIC_API_KEY} --wait-on localhost:3000 --local --start 'npm run start' momentic/
       - run:
           name: Push all tests if successful
-          command: npx momentic@latest push --api-key ${MOMENTIC_KEY} momentic/
+          command: npx momentic@latest push --api-key ${MOMENTIC_API_KEY} momentic/
       - run:
           name: Failure handler
           command: |

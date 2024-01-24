@@ -2,9 +2,14 @@
 description: How to run tests by sending a webhook.
 ---
 
-import { Tabs } from "nextra/components";
+import { Tabs, Callout } from "nextra/components";
 
 # Running a test via webhook
+
+<Callout type="warning" emoji="⚠️">
+  While you can trigger test runs using webhooks, we highly recommend using the
+  [Momentic CLI](/docs/cli) for interacting with Momentic's API.
+</Callout>
 
 You can trigger a test run by sending a POST request to a webhook URL. This can be useful if you want to trigger a test run in your CI pipeline. Make sure to generate an API key in the Momentic app first.
 

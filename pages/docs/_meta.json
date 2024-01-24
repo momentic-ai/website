@@ -12,8 +12,8 @@
   },
   "manual": "Manual",
   "cron": "Cron",
+  "cli": "CLI",
   "webhook": "Webhook",
-  "cli": "Local CLI",
   "github-actions": "GitHub Actions",
   "circleci": "CircleCI",
   "-- Viewing results": {
