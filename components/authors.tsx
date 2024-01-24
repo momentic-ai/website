@@ -14,8 +14,8 @@ export const ALL_AUTHORS = {
     twitter: "itsjeffan",
   },
   hrutik: {
-    firstName: "hrutik",
-    name: "hrutik kumthekar",
+    firstName: "Hrutik",
+    name: "Hrutik Kumthekar",
     image: "/images/people/hrutik.png",
     twitter: "bushido_hk",
   },
