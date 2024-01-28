@@ -105,7 +105,7 @@ This CLI command queues one or more tests to run immediately on Momentic's infra
 
 You can queue tests in three ways:
 
-<Tabs items={["By test path", "All tests"]}>
+<Tabs items={["By test path", "By UUID", "All tests"]}>
   <Tabs.Tab>
 
 ```bash
@@ -113,6 +113,18 @@ npx momentic@latest run --remote my-test-path another-test-path
 ```
 
 You can run specific tests by providing one or more **test paths** to the CLI. Test paths are described in a [previous section](#exporting-tests-to-yaml).
+
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+
+```bash
+npx momentic@latest run --remote 43794bcf-8f83-47a3-af32-9adbf513aeb9
+```
+
+You can also queue Momentic tests by UUID. You can obtain the UUID of a test from the browser URL when viewing the test in the Momentic web editor. If you have exported your test locally, the UUID is also visible in the `id` field of the test YAML file.
+
+Queuing tests by UUID can be preferable for scripting use cases, as this method is resilient to users renaming tests.
 
   </Tabs.Tab>
 
