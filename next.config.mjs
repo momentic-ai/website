@@ -35,8 +35,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/demo",
-        destination: "https://cal.com/wuweiweiwu/momentic-demo",
+        source: "/discovery",
+        destination: "https://cal.com/wuweiweiwu/momentic-discovery",
         permanent: true,
       },
       {
