@@ -40,6 +40,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/demo",
+        destination: "https://cal.com/wuweiweiwu/momentic-discovery",
+        permanent: true,
+      },
+      {
+        source: "/call",
+        destination: "https://cal.com/wuweiweiwu/momentic-discovery",
+        permanent: true,
+      },
+      {
         source: "/waitlist",
         destination: "https://tally.so/r/nraKxo",
         permanent: true,
