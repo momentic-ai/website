@@ -34,19 +34,10 @@ const nextConfig = {
         destination: "https://discord.gg/PhgrpJfmFK",
         permanent: true,
       },
-      {
-        source: "/discovery",
-        destination: "https://cal.com/wuweiweiwu/momentic-discovery",
-        permanent: true,
-      },
+
       {
         source: "/demo",
-        destination: "https://cal.com/wuweiweiwu/momentic-discovery",
-        permanent: true,
-      },
-      {
-        source: "/call",
-        destination: "https://cal.com/wuweiweiwu/momentic-discovery",
+        destination: "https://cal.com/wuweiweiwu/momentic-demo",
         permanent: true,
       },
       {
