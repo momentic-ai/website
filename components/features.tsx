@@ -21,7 +21,7 @@ export type Features = Feature[];
 export const FEATURES: Features = [
   {
     name: "Intelligently locate elements",
-    description: `Instead of XPath or CSS selectors, our AI to locate elements based on their visual appearance and accessibility attributes.`,
+    description: `Instead of XPath or CSS selectors, our AI locate elements based on their visual appearance and accessibility attributes.`,
     icon: <MapPin className="w-16 h-16 text-[#2971C7]" />,
   },
   {
@@ -61,7 +61,7 @@ export const FEATURES: Features = [
   },
   {
     name: `In sync with your codebase`,
-    description: `Save Momentic tests in your codebase and keep them in sync with your applications during development.`,
+    description: `Save Momentic tests in your codebase and keep them in sync during development.`,
     icon: <GitGraph className="w-16 h-16 text-[#2971C7]" />,
   },
 ];
