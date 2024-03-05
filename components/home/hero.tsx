@@ -34,7 +34,7 @@ export function Hero() {
 
           <SectionSubtext>
             Momentic is an low-code AI-powered testing platform that helps
-            developers author E2E tests in minutes, not hours.
+            developers author E2E tests in minutes, not days.
           </SectionSubtext>
 
           <Link
