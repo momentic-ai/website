@@ -26,7 +26,7 @@ export const FEATURES: Features = [
   },
   {
     name: "Powerful assertions",
-    description: `Craft assertions from any logical statement, including visual attributes.`,
+    description: `Craft assertions from any logical statement. Our AI can validate any condition.`,
     icon: <BadgeCheck className="w-16 h-16 text-[#2971C7]" />,
   },
   {
@@ -41,7 +41,7 @@ export const FEATURES: Features = [
   },
   {
     name: "Autogenerate steps",
-    description: `Use AI actions to generate steps to achieve a specific goal. Update the steps to fit your needs.`,
+    description: `Use AI actions to generate steps to achieve a goal. Update the steps to fit your needs.`,
     icon: <Bot className="w-16 h-16 text-[#2971C7]" />,
   },
   {
@@ -51,7 +51,7 @@ export const FEATURES: Features = [
   },
   {
     name: "Execute JavaScript",
-    description: `Run arbitrary JavaScript set up the environment for a test.`,
+    description: `Run arbitrary JavaScript to set up the environment for a test. You have access to libraries like Moment and Axios.`,
     icon: <Code className="w-16 h-16 text-[#2971C7]" />,
   },
   {
@@ -61,7 +61,7 @@ export const FEATURES: Features = [
   },
   {
     name: `In sync with your codebase`,
-    description: `Save Momentic tests in your codebase and keep them in sync with your applications.`,
+    description: `Save Momentic tests in your codebase and keep them in sync with your applications during development.`,
     icon: <GitGraph className="w-16 h-16 text-[#2971C7]" />,
   },
 ];
