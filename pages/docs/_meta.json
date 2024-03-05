@@ -4,7 +4,6 @@
     "title": "Introduction"
   },
   "index": "Overview",
-  "demo": "Interactive demo",
   "-- Creating a test": {
     "type": "separator",
     "title": "Creating a test"

@@ -39,7 +39,7 @@
     "items": {
       "try-yourself": {
         "title": "Interactive demo",
-        "href": "/docs/demo"
+        "href": "/docs/test-editor"
       },
       "schedule-demo": {
         "title": "Schedule demo",
