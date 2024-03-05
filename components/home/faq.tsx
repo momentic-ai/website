@@ -6,9 +6,9 @@ const faq = [
     question: <>How does it work?</>,
     answer: (
       <>
-        We use cutting-edge AI models to create autonomous agents that run in
-        the browser and interact with your application just like a real user
-        would.
+        We make AI do the heavy lifting for you: finding elements, reasoning
+        about assertions, visual comparisons, and even generating whole test
+        cases!
       </>
     ),
   },
@@ -30,44 +30,8 @@ const faq = [
     answer: (
       <>
         Test scripts (Cypress, Playwright, Puppeteer, Selenium) are flakey and
-        are a burden to maintain as your application grows. Our AI agent is able
-        to adapt to your application and only surface real issues.
-      </>
-    ),
-  },
-  {
-    question: (
-      <>
-        How does it compare to{" "}
-        <code
-          className="nx-border-black nx-border-opacity-[0.04] nx-bg-opacity-[0.03] nx-bg-black nx-break-words nx-rounded-md nx-border nx-py-0.5 nx-px-[.25em] nx-text-[.9em] dark:nx-border-white/10 dark:nx-bg-white/10"
-          dir="ltr"
-          data-language="jsx"
-          data-theme="default"
-        >
-          <span className="line">[insert production monitoring tool]</span>
-        </code>
-        ?
-      </>
-    ),
-    answer: (
-      <>
-        Production monitoring tools (Datadog, Rainforest QA, New Relic) are
-        primarily used to alert you when your production app is down. Momentic
-        supports developers, QA engineers, and product managers through the
-        entire application lifecycle. Our tests can be invoked on local
-        machines, CI/CD pipelines, and production environments. Momentic tests
-        can even live alongside your codebase and be version controlled.
-      </>
-    ),
-  },
-  {
-    question: <>Do you offer an enterprise tier?</>,
-    answer: (
-      <>
-        We offer a custom-priced enterprise tier that includes white-glove
-        onboarding, priority support, custom SLAs, SAML/SSO, unlimited runs, and
-        on-prem deployment options.
+        are a burden to maintain as your application grows. Our AI is able to
+        adapt to your application and only surface real issues.
       </>
     ),
   },
@@ -75,8 +39,9 @@ const faq = [
     question: <>How do I create tests?</>,
     answer: (
       <>
-        Describe a user flow using natural language and our AI agent will do the
-        rest. Zero code required.
+        Use our low-code editor to visually create test cases with powerful
+        self-healing steps. Anything you can do in the browser, you can do in
+        the Momentic editor.
       </>
     ),
   },
@@ -94,8 +59,8 @@ const faq = [
     question: <>Do you need access to my codebase?</>,
     answer: (
       <>
-        We store and run all tests on our infrastructure. No access to your
-        codebase is required.
+        No access to your codebase is required. We store and run all tests on
+        our infrastructure.
       </>
     ),
   },
@@ -103,24 +68,22 @@ const faq = [
 
 export function FAQ() {
   return (
-    <div className="mt-32" id="faq">
-      <Container>
-        <div className="mt-32 flex flex-col gap-12 lg:flex-row">
-          <div className="text-center lg:w-5/12 lg:text-left">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white md:text-3xl lg:text-4xl">
-              Frequently asked questions
-            </h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-300">
-              You can find more specific information about the platform by
-              digging into the documentation and reading our blog articles.
-            </p>
-          </div>
-          <div className="lg:w-7/12">
-            <Disclosures />
-          </div>
+    <Container>
+      <div className="pt-32 pb-52 flex flex-col gap-12 lg:flex-row ">
+        <div className="text-center lg:w-5/12 lg:text-left">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white md:text-3xl lg:text-4xl">
+            Frequently asked questions
+          </h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">
+            You can find more specific information about the platform by digging
+            into the documentation and reading our blog articles.
+          </p>
         </div>
-      </Container>
-    </div>
+        <div className="lg:w-7/12">
+          <Disclosures />
+        </div>
+      </div>
+    </Container>
   );
 }
 

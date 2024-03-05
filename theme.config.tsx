@@ -75,10 +75,6 @@ const config: DocsThemeConfig = {
     link: "https://momentic.ai/discord",
     icon: <DiscordIcon />,
   },
-  nextThemes: {
-    defaultTheme: "light",
-    forcedTheme: "light",
-  },
   docsRepositoryBase: "https://github.com/momentic-ai/website/blob/main",
   footer: {
     text: (
@@ -169,6 +165,10 @@ const config: DocsThemeConfig = {
     backToTop: true,
   },
   darkMode: false,
+  nextThemes: {
+    defaultTheme: "light",
+    forcedTheme: "light",
+  },
   components: {
     Frame,
   },

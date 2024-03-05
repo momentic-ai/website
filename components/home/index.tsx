@@ -1,12 +1,19 @@
+import { FEATURES } from "../features";
+import { FeaturesBento } from "../features-bento";
 import { FAQ } from "./faq";
 import { Hero } from "./hero";
-import { Demo } from "./demo";
 
 export function Home() {
   return (
-    <main className="space-y-40 mb-40">
+    <main>
       <Hero />
-      <Demo />
+
+      <FeaturesBento
+        header="Why Momentic?"
+        body="We make AI do the heavy lifting for you: finding elements, reasoning about assertions, visual comparisons, and even generating whole tests!"
+        features={FEATURES}
+      />
+
       <FAQ />
     </main>
   );
