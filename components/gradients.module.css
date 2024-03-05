@@ -1,0 +1,67 @@
+.glow {
+  mix-blend-mode: normal;
+  filter: blur(75px);
+  will-change: filter;
+}
+
+.glowSmall {
+  filter: blur(32px);
+}
+
+.glowBlue {
+  background: linear-gradient(180deg, #58a5ff 0%, #a67af4 100%);
+}
+
+.glowPink {
+  background: linear-gradient(180deg, #ff3358 0%, #ff4fd8 100%);
+}
+
+.glowConic {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2a8af6 0deg,
+    #a853ba 180deg,
+    #e92a67 360deg
+  );
+}
+
+.glowGray {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.gradientSectionBorder {
+  --gradient-y-offset: -200px;
+  --gradient-x-offset: -200px;
+  --height: 255px;
+  position: relative;
+  overflow: hidden;
+  will-change: filter;
+}
+
+.gradientSectionBorderLeft {
+  position: absolute;
+  width: 60vw;
+  height: var(--height);
+  left: var(--gradient-x-offset);
+  top: var(--gradient-y-offset);
+  background: linear-gradient(180deg, #58a5ff 0%, #a67af4 100%);
+  border-radius: 100%;
+  mix-blend-mode: normal;
+  filter: blur(50px);
+}
+
+.gradientSectionBorderRight {
+  width: 60vw;
+  position: absolute;
+  height: var(--height);
+  right: var(--gradient-x-offset);
+  top: var(--gradient-y-offset);
+  background: linear-gradient(180deg, #ff3358 0%, #ff4fd8 100%);
+  border-radius: 100%;
+  mix-blend-mode: normal;
+  filter: blur(50px);
+}
+
+.gradientSectionBorderDivider {
+  background: linear-gradient(90deg, #288cf9 0%, #e32c6b 100%);
+}

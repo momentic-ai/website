@@ -11,6 +11,14 @@
     "type": "page",
     "title": "Docs"
   },
+  "schedule-demo": {
+    "type": "page",
+    "title": "Schedule demo",
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },
   "blog": {
     "title": "Blog",
     "type": "page",
@@ -25,11 +33,18 @@
       "layout": "full"
     }
   },
-  "enterprise": {
-    "title": "Enterprise",
-    "type": "page",
-    "theme": {
-      "layout": "full"
+  "demo": {
+    "title": "Demo",
+    "type": "menu",
+    "items": {
+      "try-yourself": {
+        "title": "Interactive demo",
+        "href": "/docs/demo"
+      },
+      "schedule-demo": {
+        "title": "Schedule demo",
+        "href": "/schedule-demo"
+      }
     }
   },
   "tos": {

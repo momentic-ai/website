@@ -1,5 +1,7 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import { Container } from "./container";
+import { FadeIn } from "../fade-in";
+import { SectionHeader, SectionSubtext } from "../headings";
 
 const faq = [
   {
@@ -79,6 +81,7 @@ export function FAQ() {
             into the documentation and reading our blog articles.
           </p>
         </div>
+
         <div className="lg:w-7/12">
           <Disclosures />
         </div>

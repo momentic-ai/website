@@ -14,16 +14,22 @@ import Overview from "./images/overview.png";
 import Lunchbreak from "./images/lunchbreak.webp";
 // import Ghostcontent from "./images/ghostcontent.svg";
 import Thinkful from "./images/thinkful.svg";
+import { Gradient } from "../gradient";
 
 export function Hero() {
   return (
     <div className="relative">
-      <Blur />
-
       <Container className="pb-16 pt-[48px] md:pb-24 lg:pb-32 md:pt-16 lg:pt-20 flex justify-between gap-8 items-center flex-col relative min-h-[calc(100svh-var(--nextra-navbar-height))] overflow-hidden">
         <div />
 
-        <div className="flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6">
+        <div className="flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6 relative">
+          <Gradient
+            className="top-[-700px] dark:opacity-20 opacity-[0.15] pointer-events-none"
+            conic
+            height={1000}
+            width={1000}
+          />
+
           <HeroText h1>Automated testing with AI</HeroText>
 
           <SectionSubtext>
@@ -50,9 +56,7 @@ export function Hero() {
           </Link>
 
           <Button variant="outline" size="lg" asChild>
-            <Link target="_blank" href="https://momentic.ai/demo">
-              Book a demo
-            </Link>
+            <Link href="/schedule-demo">Book a demo</Link>
           </Button>
         </div>
 
