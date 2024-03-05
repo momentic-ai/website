@@ -9,7 +9,9 @@ import { Hero } from "./hero";
 export function Home() {
   return (
     <main>
-      <Hero />
+      <FadeIn noVertical>
+        <Hero />
+      </FadeIn>
 
       <GradientSectionBorder>
         <FadeIn className="py-16 md:py-24 lg:py-32">
