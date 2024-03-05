@@ -26,7 +26,7 @@ export const FEATURES: Features = [
   },
   {
     name: "Powerful assertions",
-    description: `Craft assertions from any logical statement. Our AI can validate any condition.`,
+    description: `Craft assertions from any logical statement or visual condition.`,
     icon: <BadgeCheck className="w-16 h-16 text-[#2971C7]" />,
   },
   {
