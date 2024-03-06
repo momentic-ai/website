@@ -24,7 +24,7 @@ export function Hero() {
 
         <div className="flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6 relative">
           <Gradient
-            className="top-[-700px] dark:opacity-20 opacity-[0.15] pointer-events-none"
+            className="top-[-800px] dark:opacity-20 opacity-[0.15] pointer-events-none"
             conic
             height={1000}
             width={1000}
@@ -37,13 +37,25 @@ export function Hero() {
             developers author E2E tests in minutes, not days.
           </SectionSubtext>
 
-          <Link
-            href="https://www.ycombinator.com/companies/momentic"
-            className="flex gap-2 items-center justify-center"
-          >
-            <span>Backed by</span>
-            <Image src={YCLogo} height={30} alt="YC" />
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-6 px-8">
+            <a
+              href="https://www.ycombinator.com/launches/KZH-momentic-automated-testing-with-ai"
+              target="_blank"
+            >
+              <img
+                src="https://www.ycombinator.com/launches/KZH-momentic-automated-testing-with-ai/upvote_embed.svg"
+                alt="Launch YC: Momentic - Automated testing with AI"
+              />
+            </a>
+
+            <Link
+              href="https://www.ycombinator.com/companies/momentic"
+              className="flex gap-2 items-center justify-center"
+            >
+              <span>Backed by</span>
+              <Image src={YCLogo} height={30} alt="YC" />
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-6 px-8">
