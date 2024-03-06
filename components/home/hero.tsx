@@ -138,7 +138,7 @@ export function Companies() {
   ];
 
   return (
-    <div className="text-center lg:w-3/4 mx-auto">
+    <div className="text-center w-3/4 mx-auto">
       <div className="font-semibold text-lg tracking-wider">
         Trusted by teams around the world
       </div>
