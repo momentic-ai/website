@@ -30,7 +30,7 @@ export function Hero() {
             width={1000}
           />
 
-          <HeroText h1>Automated testing with AI</HeroText>
+          <HeroText h1>Automated software testing with AI</HeroText>
 
           <SectionSubtext>
             Momentic is an low-code AI-powered testing platform that helps
@@ -44,7 +44,7 @@ export function Hero() {
             >
               <img
                 src="https://www.ycombinator.com/launches/KZH-momentic-automated-testing-with-ai/upvote_embed.svg"
-                alt="Launch YC: Momentic - Automated testing with AI"
+                alt="Launch YC: Momentic - Automated software testing with AI"
               />
             </a>
 
@@ -52,7 +52,7 @@ export function Hero() {
               href="https://www.ycombinator.com/companies/momentic"
               className="flex gap-2 items-center justify-center"
             >
-              <span>Backed by</span>
+              <span className="whitespace-nowrap">Backed by</span>
               <Image src={YCLogo} height={30} alt="YC" />
             </Link>
           </div>

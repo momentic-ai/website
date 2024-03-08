@@ -16,7 +16,7 @@ interface Frontmatter {
 }
 
 const OG_CONFIG = {
-  title: "Momentic | Automated testing with AI",
+  title: "Momentic | Automated software testing with AI",
   description:
     "Momentic is an low-code AI-powered testing platform that helps developers author E2E tests in minutes, not days.",
   author: {
