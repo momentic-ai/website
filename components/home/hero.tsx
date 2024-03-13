@@ -108,10 +108,10 @@ export function Companies() {
         </div>
       ),
     },
-    {
-      url: "https://www.thinkful.com/",
-      component: <Image src={Thinkful} alt="Thinkful" height={IMAGE_SIZE} />,
-    },
+    // {
+    //   url: "https://www.thinkful.com/",
+    //   component: <Image src={Thinkful} alt="Thinkful" height={IMAGE_SIZE} />,
+    // },
     {
       url: "https://www.bestparents.com/",
       component: (
@@ -156,7 +156,7 @@ export function Companies() {
       </div>
 
       <div className="slider">
-        <div className="slide-track-7 hover:pause mt-5 lg:mt-6 flex justify-evenly gap-[40px] items-center">
+        <div className="slide-track-6 hover:pause mt-5 lg:mt-6 flex justify-evenly gap-[40px] items-center">
           {[...CUSTOMERS, ...CUSTOMERS].map(({ component, url }, i) => (
             <div
               className="relative grayscale opacity-60 hover:opacity-100 transition duration-200 hover:grayscale-0"
