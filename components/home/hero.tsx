@@ -33,7 +33,7 @@ export function Hero() {
           <HeroText h1>Automated software testing with AI</HeroText>
 
           <SectionSubtext>
-            Momentic is an low-code AI-powered testing platform that helps
+            Momentic is a low-code AI-powered testing platform that helps
             developers author E2E tests in minutes, not days.
           </SectionSubtext>
 
